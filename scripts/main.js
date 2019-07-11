@@ -72,12 +72,13 @@ function obtainWeather(city) {
 
 processWeatherData = (weather) => {
   console.log(weather);
+  document.getElementById("weatherInput").style.backgroundColor = "white";
   tempElement.innerHTML = "Temp: " + weather.main.temp.toString() + "°C";
   humElement.innerHTML = "Hum: " + weather.main.humidity.toString() + "%";
 }
 
 function noWeatherMatch(error) {
-  console.log(error.tee());
+  document.getElementById("weatherInput").style.backgroundColor = "#f07a75";
 }
 
 window.onresize = function() {    

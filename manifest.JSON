@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "name": "newTab extension",
+  "version": "0.1",
+  "description": "A plain text desdasdcription",
+"content_security_policy": "default-src 'self' https://* http://* https://pixabay.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://unpkg.com https://cse.google.com https://www.google.com chrome-extension://cse.google.com http://clients1.google.com clients1.google.com ; style-src 'self' 'unsafe-inline' https://cse.google.com https://www.google.com; img-src 'self' https://www.google.com https://cse.google.com https://pixabay.com http://www.google.com https://www.googleapis.com http://clients1.google.com; connect-src https://unpkg.com https://api.openweathermap.org https://pixabay.com;",
+  "chrome_url_overrides": {
+    "newtab": "scripts/index.html"
+  }
+}

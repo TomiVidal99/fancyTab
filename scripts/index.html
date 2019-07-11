@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>Nueva pestaña</title>
+    <link rel="stylesheet" type="text/css" href="mainCSS.css">
+    <script src="../addons/p5.min.js"></script>
+    <script src="../addons/p5.dom.js"></script>
+    <script src="../addons/p5.sound.js"></script>
+  </head>
+  <body id="wrapper" >
+      <div class="weather">
+      <div id="currentTemp"></div>
+      <div id="currentHumidity"></div>
+      <div id="options"><ion-icon name="settings"></ion-icon></div>
+      <div id="optionsMenu">
+        <hr>
+        <input id="imgInput" placeholder="Fondo de pantalla">
+        <hr>
+        <input id="weatherInput" placeholder="Clima de la ciudad...">
+        <hr>
+        <div id="handleAnimations"></div>
+        <hr>
+      </div>
+    </div>
+    <gcse:search></gcse:search> 
+    <script src="main.js"></script>
+    <script src="branch.js"></script>
+    <script src="handleImageRetrieve.js"></script>
+    <script src="handleInput.js"></script>
+    <script src="google.js"></script>
+    <script src="clock.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </body>
+</html>

@@ -55,3 +55,11 @@ body {
   font-size: 0.7em;
 }
 
+#creatorStamp {
+  position: fixed;
+  margin: 0px;
+  padding: 0px;
+  left: 4px;
+  bottom: 4px;
+  font-size: 10pt;
+}

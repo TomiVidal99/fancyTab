@@ -36,6 +36,11 @@ function defineDocumentText() {
     // define placeholders texts
     imgInput.setAttribute("placeholder", languague.imagePlaceholder);
     weatherInput.setAttribute("placeholder", languague.weatherPlaceholder);  
+
+    // define creators stamp
+
+    document.getElementById("creatorStamp").innerHTML = languague.creatorsStamp;
+
 }
 
 window.onload = defineDocumentText();

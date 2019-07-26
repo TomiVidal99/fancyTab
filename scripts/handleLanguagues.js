@@ -12,7 +12,8 @@ function defineTextLanguague() {
                     "treeAnimation": "Árboles",
                     "noneAnimation": "Ninguna",
                     "weatherPlaceholder": "Clima de la ciudad...",
-                    "imagePlaceholder": "Fondo de pantalla"
+                    "imagePlaceholder": "Fondo de pantalla",
+                    "creatorsStamp": "Por: Tomás Vidal"
                 }
             break;
             case "en":
@@ -22,7 +23,8 @@ function defineTextLanguague() {
                     "treeAnimation": "Trees",
                     "noneAnimation": "None",
                     "weatherPlaceholder": "City's weather...",
-                    "imagePlaceholder": "Background image"
+                    "imagePlaceholder": "Background image",
+                    "creatorsStamp": "By: Tomás Vidal"
                 }
             break;    
         }
@@ -34,7 +36,8 @@ function defineTextLanguague() {
             "treeAnimation": "Árboles",
             "noneAnimation": "Ninguna",
             "weatherPlaceholder": "Clima de la ciudad...",
-            "imagePlaceholder": "Fondo de pantalla"
+            "imagePlaceholder": "Fondo de pantalla",
+            "creatorsStamp": "Por: Tomás Vidal"
         }
     }    
 }

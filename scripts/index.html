@@ -15,21 +15,30 @@
       <div id="currentHumidity"></div>
       <div id="options"><ion-icon name="settings"></ion-icon></div>
       <div id="optionsMenu">
+        <select id="languague">
+          <option id="lang_es" >es</option>
+          <option id="lang_en" >en</option>
+        </select>
         <hr>
-        <input id="imgInput" placeholder="Fondo de pantalla">
+        <input id="imgInput">
         <hr>
-        <input id="weatherInput" placeholder="Clima de la ciudad...">
+        <input id="weatherInput">
         <hr>
-        <div id="handleAnimations"></div>
+        <select id="animations">
+          <option id="noneAnimation" selected ></option>
+          <option id="bubbleAnimation" ></option>
+          <option id="treeAnimation" ></option>
+        </select>
         <hr>
       </div>
     </div>
-    <gcse:search></gcse:search> 
     <script src="main.js"></script>
-    <script src="branch.js"></script>
-    <script src="handleImageRetrieve.js"></script>
+    <script src="handleLanguagues.js"></script>
     <script src="handleInput.js"></script>
-    <script src="google.js"></script>
+    <script src="onload.js"></script>
+    <script src="./animations/branch.js"></script>
+    <script src="./animations/bubble.js"></script>
+    <script src="handleImageRetrieve.js"></script>
     <script src="clock.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   </body>

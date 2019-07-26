@@ -1,7 +1,8 @@
 let optionsIcon = document.getElementById("options");
 let imgInput = document.getElementById("imgInput");
-let handleAnimations = document.getElementById("handleAnimations");
+let selectAnimations = document.getElementById("animations");
 let weatherInput = document.getElementById("weatherInput");
+let selectLanguague = document.getElementById("languague");
 
 optionsIcon.addEventListener("click", () => {
   let state = window.getComputedStyle(optionsMenu).display;
@@ -25,15 +26,6 @@ function loaded() {
   }
 }
 
-let item = localStorage.getItem("animationsOn");
-if (item == "false") {
-  handleAnimations.innerHTML = "Animaciones desactivadas";
-} else if (item == "true") {
-  handleAnimations.innerHTML = "Animaciones activas";
-} else if (item != "false" || item != "true") {
-  localStorage.setItem("animationsOn", "true");
-}
-
 imgInput.addEventListener("blur", () => {
   let imgVal = imgInput.value;
   localStorage.setItem("img", imgVal);
@@ -46,14 +38,35 @@ weatherInput.addEventListener("blur", () => {
   obtainWeather(weatherVal);
 });
 
-handleAnimations.addEventListener("click", () => {
-  let item = localStorage.getItem("animationsOn");
-  if (item == "true") {
-    localStorage.setItem("animationsOn", "false");
-    handleAnimations.innerHTML = "Animaciones desactivadas";
-  } else if (item == "false") {
-    localStorage.setItem("animationsOn", "true");
-    handleAnimations.innerHTML = "Animaciones activas";
+selectAnimations.addEventListener("change", () => {
+  let index = selectAnimations.selectedIndex;
+  switch (index) {
+    case 0:
+      bubblesActive = false;
+      treesActive = false;
+    break;  
+    case 1:
+      bubblesActive = true;
+      treesActive = false;
+    break;  
+    case 2:
+      bubblesActive = false;
+      treesActive = true;
+    break;
   }
 });  
+
+selectLanguague.addEventListener("change", () => {
+  let index = selectLanguague.selectedIndex;
+  switch (index) {
+    case 0:
+      localStorage.setItem("lang", "es");
+    break;  
+    case 1:
+      localStorage.setItem("lang", "en");
+    break;  
+  }  
+  defineTextLanguague();
+  defineDocumentText();
+});
 

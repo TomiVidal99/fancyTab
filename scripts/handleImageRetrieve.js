@@ -4,7 +4,13 @@ const imgAPIKey = "12856838-d43243abae778dd8eb428f99c";
 function getImagesJSON(e) {
   let weatherWord = e.replace(" ", "%20");
   let url = imgAPILink + imgAPIKey + "&q=" + weatherWord + "&image_type=photo";
-  loadJSON(url, handleImages);
+  if (weatherWord != "") {
+    loadJSON(url, handleImages);
+  } else {
+    if (bgImage) {
+      bgImage = null;
+    }
+  }
 }
 
 function handleImages(images) {

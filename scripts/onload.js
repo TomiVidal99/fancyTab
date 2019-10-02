@@ -1,6 +1,7 @@
 let treeAnimation = document.getElementById("treeAnimation");
 let bubbleAnimation = document.getElementById("bubbleAnimation");
 let noneAnimation = document.getElementById("noneAnimation"); 
+let browserLang;
 
 // define initial values when executed code for the first time
 
@@ -49,6 +50,9 @@ function defineDocumentText() {
     // define creators stamp
 
     document.getElementById("creatorStamp").innerHTML = languague.creatorsStamp;
+
+    // Define global languague retrieving browser's languague
+    browserLang = navigator.language || navigator.userLanguage;
 
 }
 

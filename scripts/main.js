@@ -1,6 +1,6 @@
 const tree = [];
 let howBigTree = 100;
-let inputCityValue, images, wetherURL, tempElement, humElement, bgImage, imagesOn, animationsOn, weatherDescription, bgColor, treesActive, bubblesActive;
+let inputCityValue, images, wetherURL, tempElement, humElement, bgImage, imagesOn, animationsOn, weatherDescription, bgColor, treesActive, bubblesActive, timeFontSize;
 let colored = false;
 
 const weatherAPILink = "https://api.openweathermap.org/data/2.5/weather?q=";
@@ -11,6 +11,8 @@ function setup() {
     canvas = createCanvas(innerWidth, innerHeight);
     canvas.style("z-index", "-2");
     canvas.position(0, 0);    
+
+    defineFontSizeTime();
 
     // trees animation
     defineTreeSpots();
@@ -51,8 +53,14 @@ function draw() {
       clock(h, m, s, 255, 0, 0, 40, innerWidth, innerHeight);
     }
         
-    timeDisplay(b[0], new Intl.DateTimeFormat('es-AR').format(time), innerWidth, innerHeight);
+    timeDisplay(b[0], new Intl.DateTimeFormat(browserLang).format(time), innerWidth, innerHeight, timeFontSize);
   
+}
+
+function defineFontSizeTime() {
+  timeFontSize = (
+    (innerHeight / 25) + (innerWidth / 25)
+  );
 }
 
 function handleBGImage(img) {
@@ -80,6 +88,7 @@ function noWeatherMatch(error) {
 
 window.onresize = function() {    
     resizeCanvas(window.innerWidth, window.innerHeight);
+    defineFontSizeTime();
     reDefineTrees();
 }
 
@@ -94,10 +103,10 @@ function displayInfo(images) {
   console.log(images)
 }
 
-function timeDisplay(time, date, w, h) {
+function timeDisplay(time, date, w, h, ts) {
   let width_ = w;
   let heigth_ = h;
-  let timeSize = ((0.07)*width_);
+  let timeSize = ts;
   let dateSize = (20);
   let descriptionSize = (0.02*width_);
   push();

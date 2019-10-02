@@ -10,7 +10,16 @@ function defineDocumentText() {
     treeAnimation.innerHTML = languague.treeAnimation;
     bubbleAnimation.innerHTML = languague.bubbleAnimation;
     noneAnimation.innerHTML = languague.noneAnimation;
-    let index = selectAnimations.selectedIndex;
+
+    let index;
+    let storedIndex = localStorage.getItem("animation");
+    if (storedIndex) {
+      index = parseInt(storedIndex);
+      selectAnimations.selectedIndex = storedIndex;
+    } else {
+      index = 0;
+    }
+
     switch (index) {
         case 0:
           bubblesActive = false;
@@ -28,9 +37,9 @@ function defineDocumentText() {
 
     // define languague accordingly
     if (localStorage.getItem("lang") == "es") {
-      selectLanguague.selected = 0;      
+      selectLanguague.selectedIndex = 0;      
     } else if (localStorage.getItem("lang") == "en") {
-      selectLanguague.selected = 1;      
+      selectLanguague.selectedIndex = 1;      
     }
 
     // define placeholders texts

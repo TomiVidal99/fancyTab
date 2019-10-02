@@ -54,6 +54,7 @@ selectAnimations.addEventListener("change", () => {
       treesActive = true;
     break;
   }
+  localStorage.setItem("animation", index.toString());
 });  
 
 selectLanguague.addEventListener("change", () => {

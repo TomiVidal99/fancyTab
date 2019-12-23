@@ -13,7 +13,16 @@ function defineTextLanguague() {
                     "noneAnimation": "Ninguna",
                     "weatherPlaceholder": "Clima de la ciudad...",
                     "imagePlaceholder": "Fondo de pantalla",
-                    "creatorsStamp": "Por: Tomás Vidal"
+                    "creatorsStamp": "Por: Tomás Vidal",
+                    "clockSwitchLabel": "¿Activar animación del reloj?",
+                    "animationsSelectorLabel": "Seleccione una animación:",
+                    "clockHoursSizeLabel": "Horas",
+                    "clockMinutesSizeLabel": "Minutos",
+                    "clockSecondsSizeLabel": "Segundos",
+                    "clockThicknessLabel": "Grosor",
+                    "fontSizeLabel": "Tamaños de las fuentes",
+                    "clockFontSizeLabel": "Hora",
+                    "dateFontSizeLabel": "Fecha"
                 }
             break;
             case "en":
@@ -24,20 +33,38 @@ function defineTextLanguague() {
                     "noneAnimation": "None",
                     "weatherPlaceholder": "City's weather...",
                     "imagePlaceholder": "Background image",
-                    "creatorsStamp": "By: Tomás Vidal"
+                    "creatorsStamp": "By: Tomás Vidal",
+                    "clockSwitchLabel": "Activate clock's animation?",
+                    "animationsSelectorLabel": "Select an animation:",
+                    "clockHoursSizeLabel": "Hours",
+                    "clockMinutesSizeLabel": "Minutes",
+                    "clockSecondsSizeLabel": "Seconds",
+                    "clockThicknessLabel": "Thickness",
+                    "fontSizeLabel": "Font sizes",
+                    "clockFontSizeLabel": "Time",
+                    "dateFontSizeLabel": "Date"
                 }
             break;    
         }
     } else {
         localStorage.setItem("lang", 'es');
         languague = {
-            "weather": '&lang=es',
+            "weather": "&lang=es",
             "bubbleAnimation": "Burbujas",
             "treeAnimation": "Árboles",
             "noneAnimation": "Ninguna",
             "weatherPlaceholder": "Clima de la ciudad...",
             "imagePlaceholder": "Fondo de pantalla",
-            "creatorsStamp": "Por: Tomás Vidal"
+            "creatorsStamp": "Por: Tomás Vidal",
+            "clockSwitchLabel": "¿Activar animación del reloj?",
+            "animationsSelectorLabel": "Seleccione una animación:",
+            "clockHoursSizeLabel": "Horas",
+            "clockMinutesSizeLabel": "Minutos",
+            "clockSecondsSizeLabel": "Segundos",
+            "clockThicknessLabel": "Grosor",
+            "fontSizeLabel": "Tamaños de las fuentes",
+            "clockFontSizeLabel": "Hora",
+            "dateFontSizeLabel": "Fecha"
         }
     }    
 }

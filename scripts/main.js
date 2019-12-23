@@ -1,6 +1,6 @@
 const tree = [];
 let howBigTree = 100;
-let inputCityValue, images, wetherURL, tempElement, humElement, bgImage, imagesOn, animationsOn, weatherDescription, bgColor, treesActive, bubblesActive, timeFontSize;
+let inputCityValue, images, wetherURL, tempElement, humElement, bgImage, imagesOn, animationsOn, weatherDescription, bgColor, treesActive, bubblesActive, timeFontSize, dateSize, hoursSize, minutesSize, secondsSize, clockThickness;
 let colored = false;
 
 const weatherAPILink = "https://api.openweathermap.org/data/2.5/weather?q=";
@@ -13,6 +13,8 @@ function setup() {
     canvas.position(0, 0);    
 
     defineFontSizeTime();
+    defineClockCharacteristics();
+    
 
     // trees animation
     defineTreeSpots();
@@ -50,17 +52,25 @@ function draw() {
       } else if (bubblesActive) {
         startBubbleAnimation(true);  
       }
-      clock(h, m, s, 255, 0, 0, 40, innerWidth, innerHeight);
+      if (clockSwitchCheckbox.checked) {
+        clock(h, 255, 0, 0, m, 0, 255, 0, s, 0, 0, 255, 40, innerWidth, innerHeight, hoursSize, minutesSize, secondsSize, clockThickness);
+      }
     }
         
-    timeDisplay(b[0], new Intl.DateTimeFormat(browserLang).format(time), innerWidth, innerHeight, timeFontSize);
+    timeDisplay(b[0], new Intl.DateTimeFormat(browserLang).format(time), innerWidth, innerHeight, timeFontSize, dateSize);
   
 }
 
+function defineClockCharacteristics() {
+  hoursSize = document.getElementById("clockHoursSize").value;
+  minutesSize = document.getElementById("clockMinutesSize").value;
+  secondsSize = document.getElementById("clockSecondsSize").value;
+  clockThickness = document.getElementById("clockThickness").value;
+}
+
 function defineFontSizeTime() {
-  timeFontSize = (
-    (innerHeight / 25) + (innerWidth / 25)
-  );
+  timeFontSize = document.getElementById("clockFontSize").value;
+  dateSize = document.getElementById("dateFontSize").value;
 }
 
 function handleBGImage(img) {
@@ -103,11 +113,11 @@ function displayInfo(images) {
   console.log(images)
 }
 
-function timeDisplay(time, date, w, h, ts) {
+function timeDisplay(time, date, w, h, ts, ds) {
   let width_ = w;
   let heigth_ = h;
   let timeSize = ts;
-  let dateSize = (20);
+  let dateSize = ds;
   let descriptionSize = (0.02*width_);
   push();
     noStroke();
@@ -115,7 +125,7 @@ function timeDisplay(time, date, w, h, ts) {
     textAlign(CENTER);
     textFont('Helvica', timeSize);
     text(time, width_/2, heigth_/2);
-    textSize(dateSize);
+    textFont('Helvica', dateSize);
     text(date, width_/2, heigth_/2 + 30);
     if (weatherDescription) {
       textFont('Georgia',descriptionSize);

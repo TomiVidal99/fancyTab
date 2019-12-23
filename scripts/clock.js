@@ -1,37 +1,41 @@
-function clock(h, m, s, r, g ,b, a, width_, height_) {
+function clock(h, rh, gh, bh, m, rm, gm, bm, s, rs, gs ,bs, a, width_, height_, hs, ms, ss, thick) {
   const absolutePos = 0.5;
   
   let alpha = a;
   let _width = width_;
   let _height = height_;
-  let thickness = ((_width/_height)*5);
-  
-  push();
+  let hSize = hs;
+  let mSize = ms;
+  let sSize = ss;
+  let thickness = thick; 
   
   //hours 
-    
+
+  push();
   let hours = map(h, 0, 24, 0, TWO_PI);
   noFill();
-  strokeWeight(thickness + 5);
-  stroke(255, 0,0, alpha);
-  arc(_width/2, _height*(absolutePos), _width/3, _width/3, PI + PI/2, hours + PI + PI/2 , PI + QUARTER_PI);
-  
+  strokeWeight(thickness);
+  stroke(rh, gh, bh, alpha);
+  arc(_width/2, _height*(absolutePos), hSize, hSize, PI + PI/2, hours + PI + PI/2 , PI + QUARTER_PI);
+  pop();
+
   // minutes
-  
+
+  push();
   let minutes = map(m, 0, 60, 0, TWO_PI);
   noFill();
-  strokeWeight(thickness + 2);
-  stroke(255, 0,255, alpha);
-  arc(_width/2, _height*(absolutePos), _width/3.3, _width/3.3, PI + PI/2, minutes + PI + PI/2 , PI + QUARTER_PI);
-  
+  strokeWeight(thickness);
+  stroke(rm, gm, bm, alpha);
+  arc(_width/2, _height*(absolutePos), mSize, mSize, PI + PI/2, minutes + PI + PI/2 , PI + QUARTER_PI);
+  pop();
+
   // seconds
-  
+  push();
   let seconds = map(s, 0, 60, 0, TWO_PI);
   noFill();
   strokeWeight(thickness);
-  stroke(255, 100, 100, alpha);
-  arc(_width/2, _height*(absolutePos), _width/3.6, _width/3.6, PI + PI/2, seconds + PI + PI/2 , PI + QUARTER_PI);
-  
+  stroke(rs, gs, bs, alpha);
+  arc(_width/2, _height*(absolutePos), sSize, sSize, PI + PI/2, seconds + PI + PI/2 , PI + QUARTER_PI);
   pop();
   
 }

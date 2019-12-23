@@ -2,7 +2,7 @@ let optionsIcon = document.getElementById("options");
 let imgInput = document.getElementById("imgInput");
 let selectAnimations = document.getElementById("animations");
 let weatherInput = document.getElementById("weatherInput");
-let selectLanguague = document.getElementById("languague");
+let selectLanguague = document.getElementById("languague"); 
 
 optionsIcon.addEventListener("click", () => {
   let state = window.getComputedStyle(optionsMenu).display;
@@ -71,3 +71,54 @@ selectLanguague.addEventListener("change", () => {
   defineDocumentText();
 });
 
+/* DETECT AND SAVE CHANGES WHEN SLIDERS OF THE TIMER AND DATE FONT SIZE ARE CHANGED */
+clockFontSize.addEventListener("input", () => {
+  timeFontSize = clockFontSize.value; 
+});
+clockFontSize.addEventListener("change", () => {
+  if (timeFontSize) {
+    localStorage.setItem("clockFontSize", timeFontSize.toString());
+  }
+});
+ 
+/* DETECT AND SAVE CHANGES WHEN HOURS MINUTES SECONDS AND THICKNESS OF THE CLOCKS SLIDERS */
+/* HOURS */
+document.getElementById("clockHoursSize").addEventListener("input", () => {
+  hoursSize = document.getElementById("clockHoursSize").value; 
+});
+document.getElementById("clockHoursSize").addEventListener("change", () => {
+  if (hoursSize) {
+    localStorage.setItem("clockHoursSize", hoursSize.toString());
+  }
+});
+/* MINUTES */
+document.getElementById("clockMinutesSize").addEventListener("input", () => {
+  minutesSize = document.getElementById("clockMinutesSize").value; 
+});
+document.getElementById("clockMinutesSize").addEventListener("change", () => {
+  if (minutesSize) {
+    localStorage.setItem("clockMinutesSize", minutesSize.toString());
+  }
+});
+/* SECONDS */
+document.getElementById("clockSecondsSize").addEventListener("input", () => {
+  secondsSize = document.getElementById("clockSecondsSize").value; 
+});
+document.getElementById("clockSecondsSize").addEventListener("change", () => {
+  if (secondsSize) {
+    localStorage.setItem("clockSecondsSize", secondsSize.toString());
+  }
+});
+/* CLOCK THICKNESS */
+document.getElementById("clockThickness").addEventListener("input", () => {
+  clockThickness = document.getElementById("clockThickness").value;
+});
+document.getElementById("clockThickness").addEventListener("change", () => {
+  if (clockThickness) {
+    localStorage.setItem("clockThickness", clockThickness.toString());
+  }
+});
+/* ACTIVATE THE CLOCK */
+document.getElementById("clockSwitchCheckbox").addEventListener("click" ,() => {
+  localStorage.setItem("isClockActive", document.getElementById("clockSwitchCheckbox").checked.toString());
+});

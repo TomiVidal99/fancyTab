@@ -24,11 +24,47 @@
         <hr>
         <input id="weatherInput">
         <hr>
+        <label id="animationsSelectorLabel"></label>
         <select id="animations">
           <option id="noneAnimation" selected ></option>
           <option id="bubbleAnimation" ></option>
           <option id="treeAnimation" ></option>
         </select>
+        <hr>
+        <div class="timeSettings">
+          <label id="fontSizeLabel"></label>
+          <div class="slidecontainer">
+            <label class="clocksLabel" id="clockFontSizeLabel"></label>
+            <input type="range" min="1" max="100" value="50" class="slider" id="clockFontSize">
+          </div>
+          <div class="slidecontainer">
+            <label class="clocksLabel" id="dateFontSizeLabel"></label>
+            <input type="range" min="1" max="100" value="50" class="slider" id="dateFontSize">
+          </div>
+        </div>
+        <hr>
+        <div class="clockSettings">
+          <div>
+            <label id="clockSwitchLabel"></label>
+            <input id="clockSwitchCheckbox" type="checkbox">
+          </div>
+          <div class="slidecontainer">
+            <label class="clocksLabel" id="clockHoursSizeLabel"></label>
+            <input type="range" min="1" max="800" value="1" class="slider" id="clockHoursSize">
+          </div>
+          <div class="slidecontainer">
+            <label class="clocksLabel" id="clockMinutesSizeLabel"></label>
+            <input type="range" min="1" max="800" value="1" step="1" class="slider" id="clockMinutesSize">
+          </div>
+          <div class="slidecontainer">
+            <label class="clocksLabel" id="clockSecondsSizeLabel"></label>
+            <input type="range" min="1" max="800" value="1" step="1" class="slider" id="clockSecondsSize">
+          </div>
+          <div class="slidecontainer">
+            <label class="clocksLabel" id="clockThicknessLabel"></label>
+            <input type="range" min="1" max="150" value="1" step="1" class="slider" id="clockThickness">
+          </div>
+        </div>
         <hr>
       </div>
     </div>

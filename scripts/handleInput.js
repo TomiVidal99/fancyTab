@@ -81,6 +81,17 @@ clockFontSize.addEventListener("change", () => {
   }
 });
  
+document.getElementById("dateFontSize").addEventListener("input", () => {
+  dateSize = document.getElementById("dateFontSize").value; 
+});
+document.getElementById("dateFontSize").addEventListener("change", () => {
+  if (dateSize) {
+    localStorage.setItem("dateFontSize", dateSize.toString());
+  }
+});
+
+
+
 /* DETECT AND SAVE CHANGES WHEN HOURS MINUTES SECONDS AND THICKNESS OF THE CLOCKS SLIDERS */
 /* HOURS */
 document.getElementById("clockHoursSize").addEventListener("input", () => {

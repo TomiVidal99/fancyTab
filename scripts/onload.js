@@ -3,7 +3,6 @@ const bubbleAnimation = document.getElementById("bubbleAnimation");
 const noneAnimation = document.getElementById("noneAnimation"); 
 const clockFontSize = document.getElementById("clockFontSize"); 
 const dateSizeElement = document.getElementById("dateFontSize");
-const clockSizeElement = document.getElementById("clockSize");
 const clockThicknessElement = document.getElementById("clockThickness");
 const clockSwitchCheckbox = document.getElementById("clockSwitchCheckbox");
 let browserLang; 
@@ -58,8 +57,8 @@ function defineDocumentText() {
     }
 
     // define initial value for the font size of the date inside the clock
-    if (localStorage.getItem("dateSize")) {
-      dateSizeElement.value = parseInt(localStorage.getItem("dateSize"));
+    if (localStorage.getItem("dateFontSize")) {
+      dateSizeElement.value = parseInt(localStorage.getItem("dateFontSize"));
     } else {
         dateSizeElement.value = 20;
         localStorage.setItem("dateFontSize", "20");
@@ -69,7 +68,7 @@ function defineDocumentText() {
     if (localStorage.getItem("clockHoursSize")) {
       clockHoursSize.value = parseInt(localStorage.getItem("clockHoursSize"));
     } else {
-        clockHoursSize.value = window.innerWidth/300;
+        clockHoursSize.value = 420;
         localStorage.setItem("clockHoursSize", clockHoursSize.value.toString());
     }
 
@@ -77,7 +76,7 @@ function defineDocumentText() {
     if (localStorage.getItem("clockMinutesSize")) {
       clockMinutesSize.value = parseInt(localStorage.getItem("clockMinutesSize"));
     } else {
-        clockMinutesSize.value = window.innerWidth/300;
+        clockMinutesSize.value = 400;
         localStorage.setItem("clockMinutesSize", clockMinutesSize.value.toString());
     }
 
@@ -85,7 +84,7 @@ function defineDocumentText() {
     if (localStorage.getItem("clockSecondsSize")) {
       clockSecondsSize.value = parseInt(localStorage.getItem("clockSecondsSize"));
     } else {
-        clockSecondsSize.value = window.innerWidth/300;
+        clockSecondsSize.value = 380;
         localStorage.setItem("clockSecondsSize", clockSecondsSize.value.toString());
     }
 

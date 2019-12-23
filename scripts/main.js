@@ -44,7 +44,9 @@ function draw() {
 
     if (bgImage) {
       background(bgImage);
-      clock(h, m, s, 255, 0, 0, 90, innerWidth, innerHeight);
+      if (clockSwitchCheckbox.checked) {
+        clock(h, 255, 0, 0, m, 0, 255, 0, s, 0, 0, 255, 40, innerWidth, innerHeight, hoursSize, minutesSize, secondsSize, clockThickness);
+      }
     } else {
       background(bgColor);
       if (treesActive) {
@@ -126,7 +128,7 @@ function timeDisplay(time, date, w, h, ts, ds) {
     textFont('Helvica', timeSize);
     text(time, width_/2, heigth_/2);
     textFont('Helvica', dateSize);
-    text(date, width_/2, heigth_/2 + 30);
+    text(date, width_/2, heigth_/2 + ((10/8)*dateSize));
     if (weatherDescription) {
       textFont('Georgia',descriptionSize);
       text(weatherDescription, width_/2, heigth_/2 + 80);

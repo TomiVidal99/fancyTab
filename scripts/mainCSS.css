@@ -65,11 +65,21 @@ body {
   font-size: 10pt;
 }
 
+.descriptionSpacer {
+  height: 10px;
+}
+
+.clockSwitchContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
 /* SLIDER */
 
 .slidecontainer {
-  display: inline-block;
-  align-items: center;
+  display: flex;
+  justify-content: space-around;
   width: 100%; /* Width of the outside container */
 }
 

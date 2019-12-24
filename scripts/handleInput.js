@@ -133,3 +133,40 @@ document.getElementById("clockThickness").addEventListener("change", () => {
 document.getElementById("clockSwitchCheckbox").addEventListener("click" ,() => {
   localStorage.setItem("isClockActive", document.getElementById("clockSwitchCheckbox").checked.toString());
 });
+
+/* READ CHANGING VALUES OF COLOR PICKER AND ALPHA SLIDER */
+// HOURS
+document.getElementById("hoursColorSelectionColor").addEventListener("change", () => {
+  hoursColor = document.getElementById("hoursColorSelectionColor").value;
+  localStorage.setItem("hoursColorSelectionColor", hoursColor);
+});
+document.getElementById("hoursColorSelectionAlpha").addEventListener("input", () => {
+  hoursAlpha = document.getElementById("hoursColorSelectionAlpha").value;
+});
+document.getElementById("hoursColorSelectionAlpha").addEventListener("change", () => {
+  localStorage.setItem("hoursColorSelectionAlpha", hoursAlpha.toString());
+});
+
+// MINUTES
+document.getElementById("minutesColorSelectionColor").addEventListener("change", () => {
+  minutesColor = document.getElementById("minutesColorSelectionColor").value;
+  localStorage.setItem("minutesColorSelectionColor", minutesColor);
+});
+document.getElementById("minutesColorSelectionAlpha").addEventListener("input", () => {
+  minutesAlpha = document.getElementById("minutesColorSelectionAlpha").value;
+});
+document.getElementById("minutesColorSelectionAlpha").addEventListener("change", () => {
+  localStorage.setItem("minutesColorSelectionAlpha", minutesAlpha.toString());
+});
+
+// SECONDS
+document.getElementById("secondsColorSelectionColor").addEventListener("change", () => {
+  secondsColor = document.getElementById("secondsColorSelectionColor").value;
+  localStorage.setItem("secondsColorSelectionColor", secondsColor);
+});
+document.getElementById("secondsColorSelectionAlpha").addEventListener("input", () => {
+  secondsAlpha = document.getElementById("secondsColorSelectionAlpha").value;
+});
+document.getElementById("secondsColorSelectionAlpha").addEventListener("change", () => {
+  localStorage.setItem("secondsColorSelectionAlpha", secondsAlpha.toString());
+});

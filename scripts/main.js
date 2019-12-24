@@ -1,6 +1,6 @@
 const tree = [];
 let howBigTree = 100;
-let inputCityValue, images, wetherURL, tempElement, humElement, bgImage, imagesOn, animationsOn, weatherDescription, bgColor, treesActive, bubblesActive, timeFontSize, dateSize, hoursSize, minutesSize, secondsSize, clockThickness;
+let inputCityValue, images, wetherURL, tempElement, humElement, bgImage, imagesOn, animationsOn, weatherDescription, bgColor, treesActive, bubblesActive, timeFontSize, dateSize, hoursSize, minutesSize, secondsSize, clockThickness, hoursColor, minutesColor, secondsColor, hoursAlpha, secondsAlpha, minutesAlpha;
 let colored = false;
 
 const weatherAPILink = "https://api.openweathermap.org/data/2.5/weather?q=";
@@ -14,6 +14,7 @@ function setup() {
 
     defineFontSizeTime();
     defineClockCharacteristics();
+    defineInitialValuesForClocksParameters();
     
 
     // trees animation
@@ -45,7 +46,7 @@ function draw() {
     if (bgImage) {
       background(bgImage);
       if (clockSwitchCheckbox.checked) {
-        clock(h, 255, 0, 0, m, 0, 255, 0, s, 0, 0, 255, 40, innerWidth, innerHeight, hoursSize, minutesSize, secondsSize, clockThickness);
+        clock(h, hoursColor, hoursAlpha, m, minutesColor, minutesAlpha, s, secondsColor, secondsAlpha, innerWidth, innerHeight, hoursSize, minutesSize, secondsSize, clockThickness);
       }
     } else {
       background(bgColor);
@@ -55,7 +56,7 @@ function draw() {
         startBubbleAnimation(true);  
       }
       if (clockSwitchCheckbox.checked) {
-        clock(h, 255, 0, 0, m, 0, 255, 0, s, 0, 0, 255, 40, innerWidth, innerHeight, hoursSize, minutesSize, secondsSize, clockThickness);
+        clock(h, hoursColor, hoursAlpha, m, minutesColor, minutesAlpha, s, secondsColor, secondsAlpha, innerWidth, innerHeight, hoursSize, minutesSize, secondsSize, clockThickness);
       }
     }
         
@@ -68,6 +69,16 @@ function defineClockCharacteristics() {
   minutesSize = document.getElementById("clockMinutesSize").value;
   secondsSize = document.getElementById("clockSecondsSize").value;
   clockThickness = document.getElementById("clockThickness").value;
+}
+
+function defineInitialValuesForClocksParameters() {
+  hoursAlpha = document.getElementById("hoursColorSelectionAlpha").value;
+  minutesAlpha = document.getElementById("minutesColorSelectionAlpha").value;
+  secondsAlpha = document.getElementById("secondsColorSelectionAlpha").value;
+
+  hoursColor = document.getElementById("hoursColorSelectionColor").value;
+  minutesColor = document.getElementById("minutesColorSelectionColor").value;
+  secondsColor = document.getElementById("secondsColorSelectionColor").value;
 }
 
 function defineFontSizeTime() {
@@ -88,10 +99,11 @@ function obtainWeather(city) {
 }
 
 processWeatherData = (weather) => {
-  console.log(weather);
+  //console.log(weather);
   document.getElementById("weatherInput").style.backgroundColor = "white";
   tempElement.innerHTML = "Temp: " + weather.main.temp.toString() + "°C";
   humElement.innerHTML = "Hum: " + weather.main.humidity.toString() + "%";
+  weatherDescription = weather.weather[0].description;
 }
 
 function noWeatherMatch(error) {
@@ -130,8 +142,11 @@ function timeDisplay(time, date, w, h, ts, ds) {
     textFont('Helvica', dateSize);
     text(date, width_/2, heigth_/2 + ((10/8)*dateSize));
     if (weatherDescription) {
+      push();
+      textStyle(ITALIC);
       textFont('Georgia',descriptionSize);
       text(weatherDescription, width_/2, heigth_/2 + 80);
+      pop();
     }
   pop();
 }

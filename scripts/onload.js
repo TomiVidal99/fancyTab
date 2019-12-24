@@ -5,6 +5,16 @@ const clockFontSize = document.getElementById("clockFontSize");
 const dateSizeElement = document.getElementById("dateFontSize");
 const clockThicknessElement = document.getElementById("clockThickness");
 const clockSwitchCheckbox = document.getElementById("clockSwitchCheckbox");
+const clocksColorSelectionLabel = document.getElementById("clocksColorSelectionLabel");
+const hoursColorSelectionLabel = document.getElementById("hoursColorSelectionLabel");
+const hoursColorSelectionColor = document.getElementById("hoursColorSelectionColor");
+const hoursColorSelectionAlpha = document.getElementById("hoursColorSelectionAlpha");
+const minutesColorSelectionLabel = document.getElementById("minutesColorSelectionLabel");
+const minutesColorSelectionColor = document.getElementById("minutesColorSelectionColor");
+const minutesColorSelectionAlpha = document.getElementById("minutesColorSelectionAlpha");
+const secondsColorSelectionLabel = document.getElementById("secondsColorSelectionLabel");
+const secondsColorSelectionColor = document.getElementById("secondsColorSelectionColor");
+const secondsColorSelectionAlpha = document.getElementById("secondsColorSelectionAlpha");
 let browserLang; 
 
 // define initial values when executed code for the first time
@@ -124,10 +134,62 @@ function defineDocumentText() {
     
 
     // define text for clocks hours, seconds, minutes and thickness labels
-    document.getElementById("clockHoursSizeLabel").innerHTML = languague.clockHoursSizeLabel;
-    document.getElementById("clockMinutesSizeLabel").innerHTML = languague.clockMinutesSizeLabel;
-    document.getElementById("clockSecondsSizeLabel").innerHTML = languague.clockSecondsSizeLabel;
-    document.getElementById("clockThicknessLabel").innerHTML = languague.clockThicknessLabel;
+    clockHoursSizeLabel.innerHTML = languague.clockHoursSizeLabel;
+    clockMinutesSizeLabel.innerHTML = languague.clockMinutesSizeLabel;
+    clockSecondsSizeLabel.innerHTML = languague.clockSecondsSizeLabel;
+    clockThicknessLabel.innerHTML = languague.clockThicknessLabel;
+
+    hoursColorSelectionLabel.innerHTML = languague.clockHoursSizeLabel;
+    minutesColorSelectionLabel.innerHTML = languague.clockMinutesSizeLabel;
+    secondsColorSelectionLabel.innerHTML = languague.clockSecondsSizeLabel;
+
+    // intial values of colors picker and alpha slider for clocks settings
+    // colors pickers
+    if (localStorage.getItem("hoursColorSelectionColor")) {
+      hoursColorSelectionColor.value = localStorage.getItem("hoursColorSelectionColor");
+    } else {
+      hoursColorSelectionColor.value = '#ff0000'
+      localStorage.setItem("hoursColorSelectionColor", '#ff0000');
+    }
+
+    if (localStorage.getItem("minutesColorSelectionColor")) {
+      minutesColorSelectionColor.value = localStorage.getItem("minutesColorSelectionColor");
+    } else {
+      minutesColorSelectionColor.value = '#00ff00'
+      localStorage.setItem("minutesColorSelectionColor", '#00ff00');
+    }
+
+    if (localStorage.getItem("secondsColorSelectionColor")) {
+      secondsColorSelectionColor.value = localStorage.getItem("secondsColorSelectionColor");
+    } else {
+      secondsColorSelectionColor.value = '#910090'
+      localStorage.setItem("secondsColorSelectionColor", '#910090');
+    }
+
+    // sliders
+    if (localStorage.getItem("hoursColorSelectionAlpha")) {
+      hoursColorSelectionAlpha.value = parseInt(localStorage.getItem("hoursColorSelectionAlpha"));
+    } else {
+      hoursColorSelectionAlpha.value = 40
+      localStorage.setItem("hoursColorSelectionAlpha", '40');
+    }
+
+    if (localStorage.getItem("minutesColorSelectionAlpha")) {
+      minutesColorSelectionAlpha.value = parseInt(localStorage.getItem("minutesColorSelectionAlpha"));
+    } else {
+      minutesColorSelectionAlpha.value = 40
+      localStorage.setItem("minutesColorSelectionAlpha", 40);
+    }
+
+    if (localStorage.getItem("secondsColorSelectionAlpha")) {
+      secondsColorSelectionAlphaColorvalue = parseInt(localStorage.getItem("secondsColorSelectionAlpha"));
+    } else {
+      secondsColorSelectionAlphaColorvalue = 40
+      localStorage.setItem("secondsColorSelectionAlpha", '40');
+    }
+
+    // define inital value for clocks colors selection label
+    document.getElementById("clocksColorSelectionLabel").innerHTML = languague.clocksColorSelectionLabel;
 
     // Define global languague retrieving browser's languague
     browserLang = navigator.language || navigator.userLanguage;

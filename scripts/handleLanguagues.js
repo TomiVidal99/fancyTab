@@ -22,7 +22,8 @@ function defineTextLanguague() {
                     "clockThicknessLabel": "Grosor",
                     "fontSizeLabel": "Tamaños de las fuentes",
                     "clockFontSizeLabel": "Hora",
-                    "dateFontSizeLabel": "Fecha"
+                    "dateFontSizeLabel": "Fecha",
+                    "clocksColorSelectionLabel": "Selección de los colores del reloj"
                 }
             break;
             case "en":
@@ -42,7 +43,8 @@ function defineTextLanguague() {
                     "clockThicknessLabel": "Thickness",
                     "fontSizeLabel": "Font sizes",
                     "clockFontSizeLabel": "Time",
-                    "dateFontSizeLabel": "Date"
+                    "dateFontSizeLabel": "Date",
+                    "clocksColorSelectionLabel": "Selection for the clock's colors"
                 }
             break;    
         }
@@ -64,7 +66,8 @@ function defineTextLanguague() {
             "clockThicknessLabel": "Grosor",
             "fontSizeLabel": "Tamaños de las fuentes",
             "clockFontSizeLabel": "Hora",
-            "dateFontSizeLabel": "Fecha"
+            "dateFontSizeLabel": "Fecha",
+            "clocksColorSelectionLabel": "Selección de los colores del reloj"
         }
     }    
 }

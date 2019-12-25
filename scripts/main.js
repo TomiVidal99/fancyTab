@@ -132,7 +132,7 @@ function timeDisplay(time, date, w, h, ts, ds) {
   let heigth_ = h;
   let timeSize = ts;
   let dateSize = ds;
-  let descriptionSize = (0.02*width_);
+  let descriptionSize = ((0.02*width_) + dateSize/5);
   push();
     noStroke();
     fill(255);
@@ -145,7 +145,7 @@ function timeDisplay(time, date, w, h, ts, ds) {
       push();
       textStyle(ITALIC);
       textFont('Georgia',descriptionSize);
-      text(weatherDescription, width_/2, heigth_/2 + 80);
+      text(weatherDescription, width_/2, heigth_/2 + 80 + (dateSize/2));
       pop();
     }
   pop();

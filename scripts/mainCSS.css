@@ -27,6 +27,7 @@ body {
 }
 
 #options {
+  cursor: grab;
   margin-top: 5px;
 }
 

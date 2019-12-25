@@ -4,7 +4,6 @@ const noneAnimation = document.getElementById("noneAnimation");
 const clockFontSize = document.getElementById("clockFontSize"); 
 const dateSizeElement = document.getElementById("dateFontSize");
 const clockThicknessElement = document.getElementById("clockThickness");
-const clockSwitchCheckbox = document.getElementById("clockSwitchCheckbox");
 const clocksColorSelectionLabel = document.getElementById("clocksColorSelectionLabel");
 const hoursColorSelectionLabel = document.getElementById("hoursColorSelectionLabel");
 const hoursColorSelectionColor = document.getElementById("hoursColorSelectionColor");
@@ -106,14 +105,6 @@ function defineDocumentText() {
         localStorage.setItem("clockThickness", clockThicknessElement.value.toString());
     }
 
-    // define initial value of checkbox if the clock is active
-    if (localStorage.getItem("isClockActive")) {
-      clockSwitchCheckbox.checked = localStorage.getItem("isClockActive");
-    } else {
-      clockSwitchCheckbox.checked = true;
-      localStorage.setItem("isClockActive", "true");
-    }
-    
     // define placeholders texts
     imgInput.setAttribute("placeholder", languague.imagePlaceholder);
     weatherInput.setAttribute("placeholder", languague.weatherPlaceholder);  
@@ -142,6 +133,23 @@ function defineDocumentText() {
     hoursColorSelectionLabel.innerHTML = languague.clockHoursSizeLabel;
     minutesColorSelectionLabel.innerHTML = languague.clockMinutesSizeLabel;
     secondsColorSelectionLabel.innerHTML = languague.clockSecondsSizeLabel;
+
+    // set initial value for the clock's switch checkbox
+    let isClockActiveValue = localStorage.getItem("isClockActive");
+    if (isClockActiveValue) {
+      if (isClockActiveValue == "true") {
+        document.getElementById("clockSwitchCheckbox").checked = true;
+        localStorage.setItem("isClockActive", "true");
+      } else if (isClockActiveValue == "false") {
+        document.getElementById("clockSwitchCheckbox").checked = false;
+        localStorage.setItem("isClockActive", "false");
+      } else {
+        console.log("error")
+      }
+    } else {
+        document.getElementById("clockSwitchCheckbox").checked = true;
+        localStorage.setItem("isClockActive", "true");
+    }
 
     // intial values of colors picker and alpha slider for clocks settings
     // colors pickers
@@ -178,13 +186,13 @@ function defineDocumentText() {
       minutesColorSelectionAlpha.value = parseInt(localStorage.getItem("minutesColorSelectionAlpha"));
     } else {
       minutesColorSelectionAlpha.value = 40
-      localStorage.setItem("minutesColorSelectionAlpha", 40);
+      localStorage.setItem("minutesColorSelectionAlpha", '40');
     }
 
     if (localStorage.getItem("secondsColorSelectionAlpha")) {
-      secondsColorSelectionAlphaColorvalue = parseInt(localStorage.getItem("secondsColorSelectionAlpha"));
+      secondsColorSelectionAlpha.value = parseInt(localStorage.getItem("secondsColorSelectionAlpha"));
     } else {
-      secondsColorSelectionAlphaColorvalue = 40
+      secondsColorSelectionAlpha.value = 40;
       localStorage.setItem("secondsColorSelectionAlpha", '40');
     }
 

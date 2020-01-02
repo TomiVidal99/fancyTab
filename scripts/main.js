@@ -1,6 +1,6 @@
 const tree = [];
 let howBigTree = 100;
-let inputCityValue, images, wetherURL, tempElement, humElement, bgImage, imagesOn, animationsOn, weatherDescription, bgColor, treesActive, bubblesActive, timeFontSize, dateSize, hoursSize, minutesSize, secondsSize, clockThickness, hoursColor, minutesColor, secondsColor, hoursAlpha, secondsAlpha, minutesAlpha;
+let inputCityValue, images, wetherURL, tempElement, humElement, bgImage, imagesOn, animationsOn, weatherDescription, bgColor, treesActive, bubblesActive, timeFontSize, dateSize, hoursSize, minutesSize, secondsSize, clockThickness, hoursColor, minutesColor, secondsColor, hoursAlpha, secondsAlpha, minutesAlpha, timesFontColor, datesFontColor, descriptionsFontColor, isWeatherDescriptionActive;
 let colored = false;
 
 const weatherAPILink = "https://api.openweathermap.org/data/2.5/weather?q=";
@@ -60,7 +60,7 @@ function draw() {
       }
     }
         
-    timeDisplay(b[0], new Intl.DateTimeFormat(browserLang).format(time), innerWidth, innerHeight, timeFontSize, dateSize);
+    timeDisplay(b[0], new Intl.DateTimeFormat(browserLang).format(time), innerWidth, innerHeight, timeFontSize, dateSize, timesFontColor, datesFontColor, descriptionsFontColor);
   
 }
 
@@ -127,22 +127,27 @@ function displayInfo(images) {
   console.log(images)
 }
 
-function timeDisplay(time, date, w, h, ts, ds) {
+function timeDisplay(time, date, w, h, ts, ds, tColor, dColor, descriptionC) {
   let width_ = w;
   let heigth_ = h;
   let timeSize = ts;
   let dateSize = ds;
   let descriptionSize = ((0.02*width_) + dateSize/5);
+  let tc = color(tColor);
+  let dc = color(dColor);
+  let descriptionColor = color(descriptionC);
   push();
     noStroke();
-    fill(255);
+    fill(tc);
     textAlign(CENTER);
     textFont('Helvica', timeSize);
     text(time, width_/2, heigth_/2);
     textFont('Helvica', dateSize);
+    fill(dc);
     text(date, width_/2, heigth_/2 + ((10/8)*dateSize));
-    if (weatherDescription) {
+    if (weatherDescription && isWeatherDescriptionActive == "true") {
       push();
+      fill(descriptionColor);
       textStyle(ITALIC);
       textFont('Georgia',descriptionSize);
       text(weatherDescription, width_/2, heigth_/2 + 80 + (dateSize/2));

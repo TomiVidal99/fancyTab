@@ -23,7 +23,13 @@ function defineTextLanguague() {
                     "fontSizeLabel": "Tamaños de las fuentes",
                     "clockFontSizeLabel": "Hora",
                     "dateFontSizeLabel": "Fecha",
-                    "clocksColorSelectionLabel": "Selección de los colores del reloj"
+                    "clocksColorSelectionLabel": "Selección de los colores del reloj",
+                    "clockSettingsTitle": "Configuración del reloj",
+                    "numbersColorTitle": "Colores de la hora, fecha y descripción",
+                    "timeColorLabel": "Color de la hora",
+                    "dateColorLabel": "Color de la fecha",
+                    "descriptionColorLabel": "Color de la descripción",
+                    "weatherDescriptionLabel": "Activar la descripción del clima?: "
                 }
             break;
             case "en":
@@ -44,7 +50,13 @@ function defineTextLanguague() {
                     "fontSizeLabel": "Font sizes",
                     "clockFontSizeLabel": "Time",
                     "dateFontSizeLabel": "Date",
-                    "clocksColorSelectionLabel": "Selection for the clock's colors"
+                    "clocksColorSelectionLabel": "Selection for the clock's colors",
+                    "clockSettingsTitle": "Clock's settings",
+                    "numbersColorTitle": "Time and date colors",
+                    "timeColorLabel": "Time color",
+                    "dateColorLabel": "Date color",
+                    "descriptionColorLabel": "Weather description color",
+                    "weatherDescriptionLabel": "Activate weather description?: "
                 }
             break;    
         }
@@ -67,7 +79,13 @@ function defineTextLanguague() {
             "fontSizeLabel": "Tamaños de las fuentes",
             "clockFontSizeLabel": "Hora",
             "dateFontSizeLabel": "Fecha",
-            "clocksColorSelectionLabel": "Selección de los colores del reloj"
+            "clocksColorSelectionLabel": "Selección de los colores del reloj",
+            "clockSettingsTitle": "Configuración del reloj",
+            "numbersColorTitle": "Colores de la hora, fecha y descripción",
+            "timeColorLabel": "Color de la hora",
+            "dateColorLabel": "Color de la fecha",
+            "descriptionColorLabel": "Color de la descripción",
+            "weatherDescriptionLabel": "Activar la descripción del clima?: "
         }
     }    
 }

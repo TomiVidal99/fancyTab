@@ -14,6 +14,15 @@ const minutesColorSelectionAlpha = document.getElementById("minutesColorSelectio
 const secondsColorSelectionLabel = document.getElementById("secondsColorSelectionLabel");
 const secondsColorSelectionColor = document.getElementById("secondsColorSelectionColor");
 const secondsColorSelectionAlpha = document.getElementById("secondsColorSelectionAlpha");
+const clockSettingsTitle = document.getElementById("clockSettingsTitle");
+const timeColorLabel = document.getElementById("timeColorLabel");
+const dateColorLabel = document.getElementById("dateColorLabel");
+const numbersColorTitle = document.getElementById("numbersColorTitle");
+const timeColor = document.getElementById("timeColor");
+const dateColor = document.getElementById("dateColor");
+const descriptionColorLabel = document.getElementById("descriptionColorLabel");
+const weatherDescriptionLabel = document.getElementById("weatherDescriptionLabel");
+
 let browserLang; 
 
 // define initial values when executed code for the first time
@@ -105,6 +114,30 @@ function defineDocumentText() {
         localStorage.setItem("clockThickness", clockThicknessElement.value.toString());
     }
 
+    if (localStorage.getItem("timeColor")) {
+      timeColor.value = localStorage.getItem("timeColor");
+      timesFontColor = localStorage.getItem("timeColor");
+    } else {
+      localStorage.setItem("timeColor", "#ffffff");
+      timesFontColor = "#ffffff";
+    }
+
+    if (localStorage.getItem("dateColor")) {
+      dateColor.value = localStorage.getItem("dateColor");
+      datesFontColor = localStorage.getItem("dateColor");
+    } else {
+      localStorage.setItem("dateColor", "#ffffff");
+      datesFontColor = "#ffffff";
+    }
+
+    if (localStorage.getItem("descriptionColor")) {
+      descriptionColor.value = localStorage.getItem("descriptionColor");
+      descriptionsFontColor = localStorage.getItem("descriptionColor");
+    } else {
+      localStorage.setItem("descriptionColor", "#ffffff");
+      descriptionsFontColor = "#ffffff";
+    }
+
     // define placeholders texts
     imgInput.setAttribute("placeholder", languague.imagePlaceholder);
     weatherInput.setAttribute("placeholder", languague.weatherPlaceholder);  
@@ -122,7 +155,13 @@ function defineDocumentText() {
     document.getElementById("fontSizeLabel").innerHTML = languague.fontSizeLabel;
     document.getElementById("clockFontSizeLabel").innerHTML = languague.clockFontSizeLabel;
     document.getElementById("dateFontSizeLabel").innerHTML = languague.dateFontSizeLabel;
+
+    // define title for clockSettingsTitle
+    clockSettingsTitle.innerHTML = languague.clockSettingsTitle;
     
+    // define time and date color labels
+    timeColorLabel.innerHTML = languague.timeColorLabel;
+    dateColorLabel.innerHTML = languague.dateColorLabel;
 
     // define text for clocks hours, seconds, minutes and thickness labels
     clockHoursSizeLabel.innerHTML = languague.clockHoursSizeLabel;
@@ -198,6 +237,27 @@ function defineDocumentText() {
 
     // define inital value for clocks colors selection label
     document.getElementById("clocksColorSelectionLabel").innerHTML = languague.clocksColorSelectionLabel;
+
+    // define number's color title for details tag, innerHTML of summary
+    numbersColorTitle.innerHTML = languague.numbersColorTitle;
+
+    // define description color's label
+    descriptionColorLabel.innerHTML = languague.descriptionColorLabel;
+
+    // define innerHTML of weather description label and value of weather description checkbox
+    weatherDescriptionLabel.innerHTML = languague.weatherDescriptionLabel;
+    if (localStorage.getItem("weatherDescriptionCheckbox")) {
+      if (localStorage.getItem("weatherDescriptionCheckbox") == "true") {
+        weatherDescriptionCheckbox.checked = true;  
+      } else {
+        weatherDescriptionCheckbox.checked = false;          
+      }
+      isWeatherDescriptionActive = localStorage.getItem("weatherDescriptionCheckbox");
+    } else {
+      localStorage.setItem("weatherDescriptionCheckbox", "true");
+      isWeatherDescriptionActive = "true";
+      weatherDescriptionCheckbox.checked = "true";
+    }
 
     // Define global languague retrieving browser's languague
     browserLang = navigator.language || navigator.userLanguage;

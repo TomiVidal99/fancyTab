@@ -170,3 +170,27 @@ document.getElementById("secondsColorSelectionAlpha").addEventListener("input", 
 document.getElementById("secondsColorSelectionAlpha").addEventListener("change", () => {
   localStorage.setItem("secondsColorSelectionAlpha", secondsAlpha.toString());
 });
+
+// HANDLE CHANGE OF DATE, TIME AND DESCRIPTION FONT COLOR 
+
+// time color
+document.getElementById("timeColor").addEventListener("change", () => {
+  timesFontColor = document.getElementById("timeColor").value;
+  localStorage.setItem("timeColor", timesFontColor);
+});
+// date color
+document.getElementById("dateColor").addEventListener("change", () => {
+  datesFontColor = document.getElementById("dateColor").value;
+  localStorage.setItem("dateColor", datesFontColor);
+});
+// description color
+document.getElementById("descriptionColor").addEventListener("change", () => {
+  descriptionsFontColor = document.getElementById("descriptionColor").value;
+  localStorage.setItem("descriptionColor", descriptionsFontColor);
+});
+
+// handle checkbox input change of weather description 
+document.getElementById("weatherDescriptionCheckbox").addEventListener("change", () => {
+  isWeatherDescriptionActive = document.getElementById("weatherDescriptionCheckbox").checked.toString();
+  localStorage.setItem("weatherDescriptionCheckbox", isWeatherDescriptionActive);
+});

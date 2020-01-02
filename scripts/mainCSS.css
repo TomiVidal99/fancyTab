@@ -122,3 +122,17 @@ body {
   background: #4CAF50; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
+
+.summaryTitle {
+  margin-bottom: 10px;
+}
+
+#dateColorSettings {
+  margin-bottom: 10px;  
+  margin-top: 10px;
+}
+
+#weatherDescriptionSettings {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

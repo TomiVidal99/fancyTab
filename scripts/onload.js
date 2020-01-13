@@ -259,8 +259,24 @@ function defineDocumentText() {
       weatherDescriptionCheckbox.checked = "true";
     }
 
-    // Define global languague retrieving browser's languague
-    browserLang = navigator.language || navigator.userLanguage;
+    if (!localStorage.getItem("lang")) {
+      // Define global languague retrieving browser's languague
+      browserLang = navigator.language || navigator.userLanguage;  
+    } else {
+      browserLang = localStorage.getItem("lang");
+    }
+
+    // handle format indexing retrival for the date selection
+    if (localStorage.getItem("dateFormatIndex")) {
+      document.getElementById("dateFormat").selectedIndex = localStorage.getItem("dateFormatIndex");
+    } 
+
+    // handle languague selection for the options of select tag of the date's format
+    document.getElementById("dateFormatSelector").innerHTML = languague.dateFormatSelector;
+    for (let i = 1; i < 8; i++) {
+      let s = ("format_" + i.toString());
+      document.getElementById(s).innerHTML = languague[s];
+    }
 
 }
 

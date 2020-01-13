@@ -1,8 +1,8 @@
-let optionsIcon = document.getElementById("options");
-let imgInput = document.getElementById("imgInput");
-let selectAnimations = document.getElementById("animations");
-let weatherInput = document.getElementById("weatherInput");
-let selectLanguague = document.getElementById("languague"); 
+const optionsIcon = document.getElementById("options");
+const imgInput = document.getElementById("imgInput");
+const selectAnimations = document.getElementById("animations");
+const weatherInput = document.getElementById("weatherInput");
+const selectLanguague = document.getElementById("languague"); 
 
 optionsIcon.addEventListener("click", () => {
   let state = window.getComputedStyle(optionsMenu).display;
@@ -69,6 +69,8 @@ selectLanguague.addEventListener("change", () => {
   }  
   defineTextLanguague();
   defineDocumentText();
+  browserLang = localStorage.getItem("lang");
+  obtainWeather(weatherInput.value);
 });
 
 /* DETECT AND SAVE CHANGES WHEN SLIDERS OF THE TIMER AND DATE FONT SIZE ARE CHANGED */
@@ -193,4 +195,10 @@ document.getElementById("descriptionColor").addEventListener("change", () => {
 document.getElementById("weatherDescriptionCheckbox").addEventListener("change", () => {
   isWeatherDescriptionActive = document.getElementById("weatherDescriptionCheckbox").checked.toString();
   localStorage.setItem("weatherDescriptionCheckbox", isWeatherDescriptionActive);
+});
+
+// handle date format input
+document.getElementById("dateFormat").addEventListener("change" ,() => {
+  let formatIndex = document.getElementById("dateFormat").selectedIndex;
+  localStorage.setItem("dateFormatIndex", formatIndex.toString());
 });

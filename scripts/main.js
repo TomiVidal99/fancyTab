@@ -60,8 +60,8 @@ function draw() {
       }
     }
         
-    timeDisplay(b[0], new Intl.DateTimeFormat(browserLang).format(time), innerWidth, innerHeight, timeFontSize, dateSize, timesFontColor, datesFontColor, descriptionsFontColor);
-  
+    timeDisplay(b[0], handleDateFormat(time, document.getElementById("dateFormat").selectedIndex), innerWidth, innerHeight, timeFontSize, dateSize, timesFontColor, datesFontColor, descriptionsFontColor);
+
 }
 
 function defineClockCharacteristics() {
@@ -88,6 +88,7 @@ function defineFontSizeTime() {
 
 function handleBGImage(img) {
   bgImage = img;
+  //handleColorDetection(img, 150);
 }
 
 function obtainWeather(city) {
@@ -125,6 +126,20 @@ function randomizer() {
 
 function displayInfo(images) {
   console.log(images)
+}
+
+function handleDateFormat(time, option) {
+  const options = [
+    { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' },
+    { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },
+    { weekday: 'narrow', year: 'numeric', month: 'short', day: 'numeric' },
+    { weekday: 'narrow', year: 'numeric', month: 'narrow', day: 'numeric' },
+    { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' },
+    { weekday: 'short', year: 'numeric', month: 'numeric', day: 'numeric' },
+    { weekday: 'narrow', year: 'numeric', month: 'numeric', day: 'numeric' }
+  ];
+  console.log(new Intl.DateTimeFormat(browserLang, options[option]).format(time));
+  return(new Intl.DateTimeFormat(browserLang, options[option]).format(time));
 }
 
 function timeDisplay(time, date, w, h, ts, ds, tColor, dColor, descriptionC) {

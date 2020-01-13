@@ -15,7 +15,7 @@ function getImagesJSON(e) {
 
 function handleImages(images) {
   let imageNumber = Math.round(random(0, images.hits.length));
-  console.log(images);
+  //console.log(images);
   if (images.hits.length > 0) {
     let backgroundImgURL = images.hits[imageNumber].largeImageURL;
     loadImage(backgroundImgURL, handleBGImage, () => {console.log("Error with images parameters")});

@@ -29,7 +29,15 @@ function defineTextLanguague() {
                     "timeColorLabel": "Color de la hora",
                     "dateColorLabel": "Color de la fecha",
                     "descriptionColorLabel": "Color de la descripción",
-                    "weatherDescriptionLabel": "Activar la descripción del clima?: "
+                    "weatherDescriptionLabel": "Activar la descripción del clima?: ",
+                    "dateFormatSelector": "Seleccionar formato de la fecha",
+                    "format_1": "lunes, 13 de enero de 2020",
+                    "format_2": "lun., 13 ene. 2020",
+                    "format_3": "L, 13 ene. 2020",
+                    "format_4": "L, 13 E 2020",
+                    "format_5": "lunes, 13/1/2020",
+                    "format_6": "lun., 13/1/2020",
+                    "format_7": "L, 13/1/2020"
                 }
             break;
             case "en":
@@ -56,7 +64,15 @@ function defineTextLanguague() {
                     "timeColorLabel": "Time color",
                     "dateColorLabel": "Date color",
                     "descriptionColorLabel": "Weather description color",
-                    "weatherDescriptionLabel": "Activate weather description?: "
+                    "weatherDescriptionLabel": "Activate weather description?: ",
+                    "dateFormatSelector": "Select date format",
+                    "format_1": "Monday, January 13, 2020",
+                    "format_2": "Mon, Jan 13, 2020",
+                    "format_3": "M, Jan 13, 2020",
+                    "format_4": "M, J 13, 2020",
+                    "format_5": "Monday, 1/13/2020",
+                    "format_6": "Mon, 1/13/2020",
+                    "format_7": "M, 1/13/2020"
                 }
             break;    
         }
@@ -85,7 +101,15 @@ function defineTextLanguague() {
             "timeColorLabel": "Color de la hora",
             "dateColorLabel": "Color de la fecha",
             "descriptionColorLabel": "Color de la descripción",
-            "weatherDescriptionLabel": "Activar la descripción del clima?: "
+            "weatherDescriptionLabel": "Activar la descripción del clima?: ",
+            "dateFormatSelector": "Seleccionar formato de la fecha",
+            "format_1": "lunes, 13 de enero de 2020",
+            "format_2": "lun., 13 ene. 2020",
+            "format_3": "L, 13 ene. 2020",
+            "format_4": "L, 13 E 2020",
+            "format_5": "lunes, 13/1/2020",
+            "format_6": "lun., 13/1/2020",
+            "format_7": "L, 13/1/2020"
         }
     }    
 }

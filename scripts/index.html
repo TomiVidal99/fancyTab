@@ -36,16 +36,33 @@
             <div class="descriptionSpacer"></div>
             <div class="slidecontainer">
               <label class="clocksLabel" id="clockFontSizeLabel"></label>
-              <input type="range" min="1" max="200" value="50" class="slider" id="clockFontSize">
+              <input type="range" min="1" max="400" value="50" class="slider" id="clockFontSize">
             </div>
             <div class="slidecontainer">
               <label class="clocksLabel" id="dateFontSizeLabel"></label>
-              <input type="range" min="1" max="150" value="50" class="slider" id="dateFontSize">
+              <input type="range" min="1" max="350" value="50" class="slider" id="dateFontSize">
+            </div>
+            <div class="slidecontainer">
+              <label class="clocksLabel" id="weatherDescriptionFontSizeLabel"></label>
+              <input type="range" min="1" max="250" value="50" class="slider" id="weatherDescriptionFontSize">
             </div>
             <div id="weatherDescriptionSettings">
               <label id="weatherDescriptionLabel"></label>
               <input type="checkbox" id="weatherDescriptionCheckbox">
             </div>  
+            <div id="dateFormatSelectorWrapper">
+              <div id="dateFormatSelector"></div>
+              <select id="dateFormat">
+                <option id="format_1" selected></option>
+                <option id="format_2"></option>
+                <option id="format_3"></option>
+                <option id="format_4"></option>
+                <option id="format_5"></option>
+                <option id="format_6"></option>
+                <option id="format_7"></option>
+                <option id="format_8"></option>
+              </select>
+            </div>
           </div>
         </details>
         <hr>
@@ -108,19 +125,6 @@
             <label id="descriptionColorLabel"></label>
             <input id="descriptionColor" type="color" value="#ffffff">  
           </div>  
-        </details>
-        <hr>
-        <details>
-          <summary id="dateFormatSelector"></summary>
-          <select id="dateFormat">
-            <option id="format_1" selected></option>
-            <option id="format_2"></option>
-            <option id="format_3"></option>
-            <option id="format_4"></option>
-            <option id="format_5"></option>
-            <option id="format_6"></option>
-            <option id="format_7"></option>
-          </select>
         </details>
         <hr>
     </div>

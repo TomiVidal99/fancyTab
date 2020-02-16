@@ -1,38 +1,29 @@
 const tree = [];
 let howBigTree = 100;
-let inputCityValue,
+let langJSON,
+  initialValues,
   images,
   wetherURL,
   tempElement,
   humElement,
   bgImage,
   imagesOn,
-  animationsOn,
   weatherDescription,
-  bgColor,
-  treesActive,
-  bubblesActive,
-  timeFontSize,
-  dateSize,
-  hoursSize,
-  minutesSize,
-  secondsSize,
-  clockThickness,
-  hoursColor,
-  minutesColor,
-  secondsColor,
-  hoursAlpha,
-  secondsAlpha,
-  minutesAlpha,
-  timesFontColor,
-  datesFontColor,
-  descriptionsFontColor,
-  isWeatherDescriptionActive,
-  weatherDescriptionFontSize;
+  bgColor;
 let colored = false;
+
+// Define global language retrieving browser's language
+let browserLang = localStorage.getItem("lang") || navigator.language.split("-")[0] || navigator.userLanguage.split("-")[0] || "en";
 
 const weatherAPILink = "https://api.openweathermap.org/data/2.5/weather?q=";
 const weatherAPIKey = "&APPID=0b440372cffdd59274b4e0e2594c2f86";
+
+function preload() {
+  // load json containing languages for posterior usage
+  langJSON = loadJSON('../assets/languages.json');
+  // load json containing all the inital values for sliders clocks color, etc
+  initialValues =  loadJSON('../assets/initialValues.json');
+}
 
 function setup() {
   canvas = createCanvas(innerWidth, innerHeight);
@@ -53,12 +44,20 @@ function setup() {
   tempElement = document.getElementById("currentTemp");
   humElement = document.getElementById("currentHumidity");
 
-  bgColor = color(0);
+  // define text 
+  handleLanguage(langJSON[browserLang]);
+  
+  // push from localStorage all the values saved to initialValues json
+  defineStoredValues();
 
   loaded();
 }
 
 function draw() {
+
+  // background color
+  bgColor = color(initialValues["backgroundColor"]);
+
   time = new Date();
   let h = time.getHours();
   let m = time.getMinutes();
@@ -69,65 +68,46 @@ function draw() {
 
   if (bgImage) {
     background(bgImage);
-    if (clockSwitchCheckbox.checked) {
-      clock(
-        h,
-        hoursColor,
-        hoursAlpha,
-        m,
-        minutesColor,
-        minutesAlpha,
-        s,
-        secondsColor,
-        secondsAlpha,
-        innerWidth,
-        innerHeight,
-        hoursSize,
-        minutesSize,
-        secondsSize,
-        clockThickness
-      );
-    }
+    
   } else {
     background(bgColor);
-    if (treesActive) {
-      generateTree();
-    } else if (bubblesActive) {
-      startBubbleAnimation(true);
+    switch(initialValues["animationsIndex"]) {
+      case "0":
+        break;
+      case "2":
+        generateTree();
+        break;
+      case "1":
+        startBubbleAnimation(true);
+        break;
     }
-    if (clockSwitchCheckbox.checked) {
-      clock(
-        h,
-        hoursColor,
-        hoursAlpha,
-        m,
-        minutesColor,
-        minutesAlpha,
-        s,
-        secondsColor,
-        secondsAlpha,
-        innerWidth,
-        innerHeight,
-        hoursSize,
-        minutesSize,
-        secondsSize,
-        clockThickness
-      );
-    }
+    
   }
 
-  timeDisplay(
-    b[0],
-    handleDateFormat(time, document.getElementById("dateFormat").selectedIndex),
-    innerWidth,
-    innerHeight,
-    timeFontSize,
-    dateSize,
-    timesFontColor,
-    datesFontColor,
-    descriptionsFontColor,
-    weatherDescriptionFontSize
-  );
+  if (clockSwitchCheckbox.checked) {
+    clock(
+      h,
+      initialValues["hoursColorSelectionColor"],
+      initialValues["hoursColorSelectionAlpha"],
+      m,
+      initialValues["minutesColorSelectionColor"],
+      initialValues["minutesColorSelectionAlpha"],
+      s,
+      initialValues["secondsColorSelectionColor"],
+      initialValues["secondsColorSelectionAlpha"],
+      innerWidth,
+      innerHeight,
+      initialValues["clockHoursSize"],
+      initialValues["clockMinutesSize"],
+      initialValues["clockSecondsSize"],
+      initialValues["clockThickness"]
+    );
+  }
+
+  handleTimeDisplay(b[0], initialValues["timeColor"], initialValues["clockFontSize"]);
+  handleDateDisplay(handleDateFormat(time, parseInt(initialValues["dateFormat"])), initialValues["dateColor"], initialValues["dateFontSize"]);
+  handleDescriptionDisplay(weatherDescription, initialValues["descriptionColor"], initialValues["weatherDescriptionFontSize"]);
+
 }
 
 function defineClockCharacteristics() {
@@ -158,13 +138,15 @@ function handleBGImage(img) {
 }
 
 function obtainWeather(city) {
+  // define language for the weather API
+  let weatherLanguage = "&lang=" + browserLang;
   if (city) {
     let tempVal = city.replace(" ", "%20");
     weatherURL =
       weatherAPILink +
       tempVal +
       weatherAPIKey +
-      languague.weather +
+      weatherLanguage +
       "&units=metric";
     loadJSON(weatherURL, processWeatherData, noWeatherMatch);
   }
@@ -220,50 +202,6 @@ function handleDateFormat(time, option) {
   } else {
     return new Intl.DateTimeFormat(browserLang, options[option]).format(time);
   }
-}
-
-function timeDisplay(
-  time,
-  date,
-  w,
-  h,
-  ts,
-  ds,
-  tColor,
-  dColor,
-  descriptionC,
-  deSize
-) {
-  let width_ = w;
-  let heigth_ = h;
-  let timeSize = ts;
-  let dateSize = ds;
-  let descriptionSize = deSize;
-  let tc = color(tColor);
-  let dc = color(dColor);
-  let descriptionColor = color(descriptionC);
-  push();
-  noStroke();
-  fill(tc);
-  textAlign(CENTER);
-  textFont("Helvica", timeSize);
-  text(time, width_ / 2, heigth_ / 2);
-  textFont("Helvica", dateSize);
-  fill(dc);
-  text(date, width_ / 2, heigth_ / 2 + (10 / 8) * dateSize);
-  if (weatherDescription && isWeatherDescriptionActive == "true") {
-    push();
-    fill(descriptionColor);
-    textStyle(ITALIC);
-    textFont("Georgia", descriptionSize);
-    text(
-      weatherDescription,
-      width_ / 2,
-      heigth_ / 2 + (dateSize + descriptionSize) / 30
-    );
-    pop();
-  }
-  pop();
 }
 
 function keyPressed() {

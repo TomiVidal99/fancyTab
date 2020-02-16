@@ -1,0 +1,23 @@
+{   
+    "animationsIndex": "0",
+    "timeColor": "#ffffff",
+    "dateColor": "#ffffff",
+    "descriptionColor": "#ffffff",
+    "clockSwitchCheckbox": "true",
+    "weatherDescriptionCheckbox": "true",
+    "dateFormat": "7",
+    "hoursColorSelectionColor": "#ff0000",
+    "minutesColorSelectionColor": "#00ff00",
+    "secondsColorSelectionColor": "#910090",
+    "hoursColorSelectionAlpha": "40",
+    "minutesColorSelectionAlpha": "40",
+    "secondsColorSelectionAlpha": "40",
+    "clockHoursSize": "420",
+    "clockMinutesSize": "400",
+    "clockSecondsSize": "380",
+    "clockThickness": "4",
+    "clockFontSize": "15",
+    "dateFontSize": "4",
+    "weatherDescriptionFontSize": "4",
+    "backgroundColor": "#292929"
+}

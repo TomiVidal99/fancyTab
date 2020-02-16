@@ -9,12 +9,17 @@
     <script src="../addons/p5.sound.js"></script>
   </head>
   <body id="wrapper" >
+      <div class="data_display_wrapper">
+        <div id="time_display" class="time"></div>
+        <div id="date_display" class="date"></div>
+        <div id="weather_description_display" class="description"></div>
+      </div>
       <div class="weather">
       <div id="currentTemp"></div>
       <div id="currentHumidity"></div>
       <div id="options"><ion-icon name="settings"></ion-icon></div>
       <div id="optionsMenu">
-        <select id="languague">
+        <select id="language">
           <option id="lang_es" >es</option>
           <option id="lang_en" >en</option>
         </select>
@@ -24,7 +29,7 @@
         <input id="weatherInput">
         <hr>
         <label id="animationsSelectorLabel"></label>
-        <select id="animations">
+        <select id="animationsIndex">
           <option id="noneAnimation" selected ></option>
           <option id="bubbleAnimation" ></option>
           <option id="treeAnimation" ></option>
@@ -36,15 +41,15 @@
             <div class="descriptionSpacer"></div>
             <div class="slidecontainer">
               <label class="clocksLabel" id="clockFontSizeLabel"></label>
-              <input type="range" min="1" max="400" value="50" class="slider" id="clockFontSize">
+              <input type="range" min="1" max="20" value="1" class="slider" id="clockFontSize">
             </div>
             <div class="slidecontainer">
               <label class="clocksLabel" id="dateFontSizeLabel"></label>
-              <input type="range" min="1" max="350" value="50" class="slider" id="dateFontSize">
+              <input type="range" min="1" max="20" value="1" class="slider" id="dateFontSize">
             </div>
             <div class="slidecontainer">
               <label class="clocksLabel" id="weatherDescriptionFontSizeLabel"></label>
-              <input type="range" min="1" max="250" value="50" class="slider" id="weatherDescriptionFontSize">
+              <input type="range" min="1" max="20" value="1" class="slider" id="weatherDescriptionFontSize">
             </div>
             <div id="weatherDescriptionSettings">
               <label id="weatherDescriptionLabel"></label>
@@ -75,15 +80,15 @@
           <div class="descriptionSpacer"></div>
           <div class="slidecontainer">
             <label class="clocksLabel" id="clockHoursSizeLabel"></label>
-            <input type="range" min="1" max="1500" value="1" class="slider" id="clockHoursSize">
+            <input type="range" min="1" max="100" value="1" step="1" class="slider" id="clockHoursSize">
           </div>
           <div class="slidecontainer">
             <label class="clocksLabel" id="clockMinutesSizeLabel"></label>
-            <input type="range" min="1" max="1500" value="1" step="1" class="slider" id="clockMinutesSize">
+            <input type="range" min="1" max="100" value="1" step="1" class="slider" id="clockMinutesSize">
           </div>
           <div class="slidecontainer">
             <label class="clocksLabel" id="clockSecondsSizeLabel"></label>
-            <input type="range" min="1" max="1500" value="1" step="1" class="slider" id="clockSecondsSize">
+            <input type="range" min="1" max="100" value="1" step="1" class="slider" id="clockSecondsSize">
           </div>
           <div class="slidecontainer">
             <label class="clocksLabel" id="clockThicknessLabel"></label>
@@ -111,7 +116,7 @@
           </div>
         </details>
         <hr>
-        <details>
+        <details class="colorsSettings">
           <summary id="numbersColorTitle" class="summaryTitle"></summary>
           <div id="timeColorSettings">
             <label id="timeColorLabel"></label>
@@ -121,18 +126,23 @@
             <label id="dateColorLabel"></label>
             <input id="dateColor" type="color" value="#ffffff">  
           </div>  
-          <div id="desciptionColorSettings">
+          <div id="descriptionColorSettings">
             <label id="descriptionColorLabel"></label>
             <input id="descriptionColor" type="color" value="#ffffff">  
           </div>  
+          <div id="backgroundColorsettings">
+            <label id="backgroundColorLabel"></label>
+            <input id="backgroundColor" type="color">  
+          </div>
         </details>
         <hr>
     </div>
     <div id="creatorStamp"></div>
+    <script src="handleLanguage.js"></script>
+    <script src="handleValuesChange.js"></script>
     <script src="main.js"></script>
-    <script src="handleLanguagues.js"></script>
     <script src="handleInput.js"></script>
-    <script src="onload.js"></script>
+    <script src="handleDataDisplay.js"></script>
     <script src="./animations/branch.js"></script>
     <script src="./animations/bubble.js"></script>
     <script src="handleImageRetrieve.js"></script>

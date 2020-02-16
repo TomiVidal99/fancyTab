@@ -3,16 +3,16 @@ function clock(h, hColor, ha, m, mColor, ma, s, sColor, sa, width_, height_, hs,
   
   let _width = width_;
   let _height = height_;
-  let hSize = hs;
-  let mSize = ms;
-  let sSize = ss;
+  let hSize = ((height_ * 10 )/ parseInt(hs))*4;
+  let mSize = ((height_ * 10) / parseInt(ms))*4;
+  let sSize = ((height_ * 10) / parseInt(ss))*4;
   let thickness = thick; 
   let hc = color(hColor);
   let mc = color(mColor);
   let sc = color(sColor);
-  let hAlpha = ha;
-  let mAlpha = ma;
-  let sAlpha = sa;
+  let hAlpha = parseInt(ha);
+  let mAlpha = parseInt(ma);
+  let sAlpha = parseInt(sa);
 
   //hours 
 

@@ -8,9 +8,69 @@ body {
   z-index: 1;
 }
 
+/* STYLING FOR THE TIME DATE AND DISCRIPTION DIV */
+
+:root {
+  --time-display-size: 15vh;
+  --date-display-size: 10vh;
+  --description-display-size: 8vh;
+}
+
+.data_display_wrapper {
+  position: absolute;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  grid-template-rows: 40% 15% 10% 8% auto;
+  grid-template-columns: auto 35% auto;
+}
+
+#time_display {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 2;
+  grid-row-end: span 1;
+  font-size: var(--time-display-size);
+}
+
+#date_display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 3;
+  grid-row-end: span 1;
+  font-size: 1.3vw;
+}
+
+#weather_description_display {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 4;
+  grid-row-end: span 1;
+  font-size: 1.3vw;
+}
+
+/* --- end ---- */
+
+
+
 .weather {
-  font-size: 1.5em;
-  padding: 1.5em;
+  font-size: 1.5vw;
+  padding-right: 30px;
+  padding-top: 30px;
   border: 0px;
   margin: 0px;
   margin-right: 1em;
@@ -135,4 +195,8 @@ body {
 #weatherDescriptionSettings {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.colorsSettings div {
+  margin-top: 5px;
 }

@@ -2,6 +2,7 @@
     "es": {
         "bubbleAnimation": "Burbujas",
         "treeAnimation": "Árboles",
+        "boxesAnimation": "Cajas",
         "noneAnimation": "Ninguna",
         "weatherInput": "Clima de la ciudad...",
         "imgInput": "Fondo de pantalla",
@@ -37,6 +38,7 @@
     "en": {
         "bubbleAnimation": "Bubbles",
         "treeAnimation": "Trees",
+        "boxesAnimation": "Boxes",
         "noneAnimation": "None",
         "weatherInput": "City's weather...",
         "imgInput": "Background image",

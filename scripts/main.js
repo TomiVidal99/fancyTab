@@ -1,4 +1,3 @@
-const tree = [];
 let howBigTree = 100;
 let langJSON,
   initialValues,
@@ -72,6 +71,9 @@ function draw() {
         break;
       case "1":
         startBubbleAnimation(true);
+        break;
+      case "2":
+        startBoxesAnimation(true);
         break;
     }
     
@@ -162,13 +164,6 @@ window.onresize = function() {
   defineFontSizeTime();
   reDefineTrees();
 };
-
-function randomizer() {
-  angle = random(PI / 10, PI / 4);
-  tree.splice(3, tree.length);
-  tree[0].hasBranch = false;
-  tree[1].hasBranch = false;
-}
 
 function displayInfo(images) {
   console.log(images);

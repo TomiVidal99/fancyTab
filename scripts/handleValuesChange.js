@@ -8,22 +8,7 @@ function defineStoredValues() {
         if (newVal) {
             initialValues[item] = newVal;
         }
-        if (item === "animationsIndex") {
-            const i = parseInt(initialValues[item]);
-            switch(i) {
-                case 1:
-                    console.log("Bubbles!");
-                     // bubbles animation
-                    createInitialBubbles();
-                break;
-                case 2:
-                    console.log("refractal trees!");
-                    // trees animation
-                    defineTreeSpots();
-                    createTreeLog();
-                break;
-            }
-        }
+        changesOnAnimations(item);
         if (i.type === "range") {
             i.value = parseInt(initialValues[item]);
             // add event listeners
@@ -46,6 +31,7 @@ function defineStoredValues() {
             i.onchange = () => {
                 initialValues[item] = i.selectedIndex.toString();
                 localStorage.setItem(item, initialValues[item]);
+                changesOnAnimations(item);
             }
         } else  if (i.type === "checkbox") {
             if (initialValues[item] === "true") {
@@ -69,6 +55,31 @@ function defineStoredValues() {
         document.getElementById("language").selectedIndex = 1;
     }
 
+}
+
+function changesOnAnimations(item) {
+    if (item === "animationsIndex") {
+        const i = initialValues[item];
+        let int;
+        switch(i) {
+            case "1":
+                console.log("Bubbles!");
+                 // bubbles animation
+                createInitialBubbles();
+            break;
+            case "2":
+                console.log("refractal trees!");
+                // trees animation
+                resizeCanvas(window.innerWidth, window.innerHeight);
+                reDefineTrees();    
+            break;
+            case "3":
+                console.log("Boxes!");
+                // boxes animation
+                createInitialBoxes();
+            break;
+        }
+    }
 }
 
 function handleValuesChange(key, newValue) {

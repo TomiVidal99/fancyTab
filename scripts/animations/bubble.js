@@ -27,7 +27,7 @@ class Bubble {
     }
     draw() {
         push();
-            stroke(255);
+            noStroke();
             fill(this.r, this.g, this.b, this.h);
             ellipse(this.x, this.y, this.size, this.size);
         pop();
@@ -37,10 +37,10 @@ class Bubble {
         this.y = this.y + (this.velocityY*this.yDirection);
     }
     wallBounce() {
-        if ((this.x + this.size) <= 0 || (this.x + this.size) >= innerWidth) {
+        if ((this.x - this.size/2) <= 0 || (this.x + this.size/2) >= innerWidth) {
             this.xDirection = this.xDirection*(-1);
         }
-        if ((this.y + this.size) <= 0 || (this.y + this.size) >= innerHeight) {
+        if ((this.y - this.size/2) <= 0 || (this.y + this.size/2) >= innerHeight) {
             this.yDirection = this.yDirection*(-1);
         } 
     }
@@ -80,17 +80,25 @@ function startBubbleAnimation(bool) {
 
 function createInitialBubbles() {
     for (let amount = 0; amount < totalBubbles; amount++) {
-        let x_ = random(0, innerWidth);
-        let y_ = random(0, innerHeight);
-        var ran_1 = directions[Math.floor(Math.random()*directions.length)];
-        var ran_2 = directions[Math.floor(Math.random()*directions.length)];
-        let bSize = random(minSize, maxSize);
-        let velocityX = random(0.1, 6);
-        let velocityY = random(0.1, 6);
-        let r = random(0, 255);
-        let g = random(0, 255);
-        let b = random(0, 255);
-        let h = random(30, 100);
+        const bSize = random(minSize, maxSize);
+        let x_ = random(bSize/2, innerWidth - (bSize/2));
+        let y_ = random(bSize/2, innerHeight - (bSize/2));
+        bubbles.forEach( (bubble) => {
+            let d = int(dist(x_, y_, bubble.x, bubble.y));
+            while (d <= (bubble.size/2 + bSize/2)) {
+                x_ = random(bSize/2, innerWidth - (bSize/2));
+                y_ = random(bSize/2, innerHeight - (bSize/2));
+                d = dist(x_, y_, bubble.x, bubble.y);
+            }
+        });
+        const ran_1 = directions[Math.floor(Math.random()*directions.length)];
+        const ran_2 = directions[Math.floor(Math.random()*directions.length)];
+        const velocityX = random(0.1, 6);
+        const velocityY = random(0.1, 6);
+        const r = random(0, 255);
+        const g = random(0, 255);
+        const b = random(0, 255);
+        const h = random(30, 100);
         bubbles.push(new Bubble(bSize, x_, y_, r, g, b, h, velocityX, velocityY, ran_1, ran_2, collitionCount));
-    }    
+    }
 }

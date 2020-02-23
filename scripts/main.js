@@ -34,13 +34,6 @@ function setup() {
   defineClockCharacteristics();
   defineInitialValuesForClocksParameters();
 
-  // trees animation
-  defineTreeSpots();
-  createTreeLog();
-
-  // bubbles animation
-  createInitialBubbles();
-
   tempElement = document.getElementById("currentTemp");
   humElement = document.getElementById("currentHumidity");
 

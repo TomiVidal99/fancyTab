@@ -8,6 +8,22 @@ function defineStoredValues() {
         if (newVal) {
             initialValues[item] = newVal;
         }
+        if (item === "animationsIndex") {
+            const i = parseInt(initialValues[item]);
+            switch(i) {
+                case 1:
+                    console.log("Bubbles!");
+                     // bubbles animation
+                    createInitialBubbles();
+                break;
+                case 2:
+                    console.log("refractal trees!");
+                    // trees animation
+                    defineTreeSpots();
+                    createTreeLog();
+                break;
+            }
+        }
         if (i.type === "range") {
             i.value = parseInt(initialValues[item]);
             // add event listeners

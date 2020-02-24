@@ -25,6 +25,7 @@ function preload() {
 }
 
 function setup() {
+
   canvas = createCanvas(innerWidth, innerHeight);
   canvas.style("z-index", "-2");
   canvas.position(0, 0);
@@ -43,6 +44,7 @@ function setup() {
   defineStoredValues();
 
   loaded();
+
 }
 
 function draw() {
@@ -72,7 +74,7 @@ function draw() {
       case "1":
         startBubbleAnimation(true);
         break;
-      case "2":
+      case "3":
         startBoxesAnimation(true);
         break;
     }
@@ -194,6 +196,17 @@ function handleDateFormat(time, option) {
 
 function keyPressed() {
   if (keyCode === RETURN) {
-    reDefineTrees();
+    
+    if (initialValues["animationsIndex"] === "2") {
+      // trees
+      reDefineTrees();
+
+    } else if (initialValues["animationsIndex"] === "1") {
+      // bubbles
+
+    } else if (initialValues["animationsIndex"] === "3") {
+      // boxes
+
+    }
   }
 }

@@ -5,6 +5,7 @@ function handleTimeDisplay(time, color, size) {
         timeElement.innerHTML = time;
         timeElement.style.color = color;
         timeElement.style.fontSize = size + "vh";
+        /* console.log("Font size was set to: ", size); */
     }
 }
 

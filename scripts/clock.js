@@ -17,6 +17,7 @@ function clock(h, hColor, ha, m, mColor, ma, s, sColor, sa, width_, height_, hs,
   //hours 
 
   push();
+  angleMode(RADIANS);
   let hours = map(h, 0, 24, 0, TWO_PI);
   noFill();
   strokeWeight(thickness);  
@@ -27,6 +28,7 @@ function clock(h, hColor, ha, m, mColor, ma, s, sColor, sa, width_, height_, hs,
   // minutes
 
   push();
+  angleMode(RADIANS);
   let minutes = map(m, 0, 60, 0, TWO_PI);
   noFill();
   strokeWeight(thickness*(3/4));
@@ -36,6 +38,7 @@ function clock(h, hColor, ha, m, mColor, ma, s, sColor, sa, width_, height_, hs,
 
   // seconds
   push();
+  angleMode(RADIANS);
   let seconds = map(s, 0, 60, 0, TWO_PI);
   noFill();
   strokeWeight(thickness/2);

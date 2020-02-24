@@ -3,14 +3,21 @@ const imgInput = document.getElementById("imgInput");
 const animationsIndex = document.getElementById("animationsIndex");
 const weatherInput = document.getElementById("weatherInput");
 const selectLanguage = document.getElementById("language");
+const weatherBox = document.getElementsByClassName("weather")[0];
 
 optionsIcon.addEventListener("click", () => {
   let state = window.getComputedStyle(optionsMenu).display;
   if (state === "none") {
     optionsMenu.style.display = "inline-block";
+    if (innerWidth > 900) {
+      weatherBox.style.marginLeft = "80%";
+    } else if (innerWidth <= 900) {
+      weatherBox.style.marginLeft = "60%";
+    } 
   } else {
     optionsMenu.style.display = "none";
-  }
+    weatherBox.style.marginLeft = "90%";
+  } 
   document.querySelectorAll("details").forEach(e => {
     e.open = false;
   });

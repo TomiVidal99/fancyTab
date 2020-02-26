@@ -16,7 +16,7 @@ optionsIcon.addEventListener("click", () => {
     } 
   } else {
     optionsMenu.style.display = "none";
-    weatherBox.style.marginLeft = "90%";
+    weatherBox.style.marginLeft = "80%";
   } 
   document.querySelectorAll("details").forEach(e => {
     e.open = false;

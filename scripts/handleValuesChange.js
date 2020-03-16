@@ -61,6 +61,7 @@ function changesOnAnimations(item) {
     if (item === "animationsIndex") {
         const i = initialValues[item];
         let int;
+        cleanCachedData();
         switch(i) {
             case "1":
                 console.log("Bubbles!");
@@ -89,3 +90,9 @@ function handleValuesChange(key, newValue) {
 }
 
 
+function cleanCachedData() {
+    // funtion for deleting old arrays with no longer needed data
+    tree.splice(1, tree.length);
+    boxes.splice(1, tree.length);
+    bubbles.splice(1, tree.length);
+}

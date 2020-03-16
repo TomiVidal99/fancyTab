@@ -6,7 +6,7 @@ class Branch {
         this.begin = begin;
         this.end = end;
         this.stroke = thickness;
-        this.color = color("white");
+        this.color = color(random(0, 222), random(0, 222), random(0, 222), random(40, 80));
         this.turnAngle;
         this.hasBranch = false;
     }
@@ -30,9 +30,6 @@ class Branch {
         let newEnd = p5.Vector.add(this.end, direction)
         return(new Branch(this.end, newEnd, this.stroke, this.turnAngle));        
     }
-    setColor() {
-        this.color = color(random(0, 222), random(0, 222), random(0, 222), random(40, 80));
-    }
 }
 
 
@@ -45,11 +42,8 @@ function generateTree() {
                 tree.push(branch.branchLeft());                
                 branch.hasBranch = true;
             }
-        });
-    if (tree[(howBigTree)] && !colored) {
-        defineColorForAll();
-        colored = true;
-    }
+        }
+    );
 }
 
 function createTreeLog() {    
@@ -81,13 +75,4 @@ function reDefineTrees() {
     createTreeLog();    
     defineTreeSpots();    
     colored = !colored;
-    defineColorForAll();
-}
-
-function defineColorForAll() {
-    tree.forEach(
-        function(branch){
-            branch.setColor();
-        }
-    );
 }

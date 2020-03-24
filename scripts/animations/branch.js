@@ -1,5 +1,8 @@
 const tree = [];
-let root1, root2, angle, canvas, spot1, spot2, spot3;
+let spots = [];
+let roots = [];
+let angle, canvas;
+let treesQuantity = 3;
 
 class Branch {
     constructor(begin, end, thickness) {
@@ -47,24 +50,33 @@ function generateTree() {
 }
 
 function createTreeLog() {    
-    defineTreeSpots();
-    root1 = new Branch(createVector(spot1, height), createVector(spot1, height-(height/7)), 5);
-    root2 = new Branch(createVector(spot3, height), createVector(spot3, height-(height/7)), 5);
-    tree.push(root1, root2);
-    randomizer();
+    
+    tree.splice(treesQuantity, tree.length);
+
+    for (let i = 1; i < (treesQuantity + 1); i++) {
+        let spot = windowWidth * ((i)/(treesQuantity));
+        if (spot < innerWidth && spot > 0) {
+            tree.push(
+                new Branch(createVector(spot, height), createVector(spot, height-random(50, height/5)), 5)
+            );
+        }
+    }
+    
+    for (let i = 0; i < (treesQuantity-2); i++) {
+        angle = random(PI / 10, PI / 4);
+        tree[i].hasBranch = false;
+    }
+
+    
 }
 
-function defineTreeSpots() {
-    spot1 = windowWidth * (1/4);
-    spot2 = windowWidth * (2/4);
-    spot3 = windowWidth * (3/4);    
-}
 
 function randomizer() {
     angle = random(PI / 10, PI / 4);
-    tree.splice(3, tree.length);
-    tree[0].hasBranch = false;
-    tree[1].hasBranch = false;
+    tree.splice(treesQuantity, tree.length);
+    for (let i = 0; i < treesQuantity - 1; i++) {
+        tree[i].hasBranch = false;
+    }
 }
 
 function reDefineTrees() {
@@ -73,6 +85,4 @@ function reDefineTrees() {
       tree.splice(0, tree.length);    
     }
     createTreeLog();    
-    defineTreeSpots();    
-    colored = !colored;
 }

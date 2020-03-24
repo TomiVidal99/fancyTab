@@ -9,7 +9,8 @@ let langJSON,
   imagesOn,
   weatherDescription,
   bgColor;
-let colored = false;
+
+let changeAngle = false;
 
 // Define global language retrieving browser's language
 let browserLang = localStorage.getItem("lang") || navigator.language.split("-")[0] || navigator.userLanguage.split("-")[0] || "en";
@@ -37,9 +38,9 @@ function setup() {
   tempElement = document.getElementById("currentTemp");
   humElement = document.getElementById("currentHumidity");
 
-  // define text 
+  // define text
   handleLanguage(langJSON[browserLang]);
-  
+
   // push from localStorage all the values saved to initialValues json
   defineStoredValues();
 
@@ -62,7 +63,7 @@ function draw() {
 
   if (bgImage) {
     background(bgImage);
-    
+
   } else {
     background(bgColor);
     switch(initialValues["animationsIndex"]) {
@@ -78,7 +79,7 @@ function draw() {
         startBoxesAnimation(true);
         break;
     }
-    
+
   }
 
   if (clockSwitchCheckbox.checked) {
@@ -194,11 +195,19 @@ function handleDateFormat(time, option) {
   }
 }
 
+function mousePressed() {
+  // if (initialValues["animationsIndex"] === "2") {
+  //   // trees
+  //   treesQuantity++;
+  //   reDefineTrees();
+  // }
+}
+
 function keyPressed() {
   if (keyCode === RETURN) {
-    
     if (initialValues["animationsIndex"] === "2") {
       // trees
+      treesQuantity++;
       reDefineTrees();
 
     } else if (initialValues["animationsIndex"] === "1") {

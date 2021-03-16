@@ -8,6 +8,10 @@ body {
   z-index: 1;
 }
 
+body::-webkit-scrollbar-thumb, body::-webkit-scrollbar-track, body::-webkit-scrollbar-corner, body::-webkit-scrollbar-button {
+    display: none;
+}
+
 /* STYLING FOR THE TIME DATE AND DISCRIPTION DIV */
 
 :root {

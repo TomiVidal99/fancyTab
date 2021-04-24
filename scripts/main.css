@@ -1,0 +1,235 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  border: 0px;
+  color: aliceblue;
+  z-index: 1;
+}
+
+/* STYLING FOR THE TIME DATE AND DISCRIPTION DIV */
+
+:root {
+  --time-display-size: 15vh;
+  --date-display-size: 10vh;
+  --description-display-size: 8vh;
+}
+
+.data_display_wrapper {
+  position: absolute;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  grid-template-rows: 40% 15% 10% 8% auto;
+  grid-template-columns: auto 35% auto;
+}
+
+#time_display {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 2;
+  grid-row-end: span 1;
+  font-size: var(--time-display-size);
+}
+
+#date_display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 3;
+  grid-row-end: span 1;
+  font-size: 1.3vw;
+}
+
+#weather_description_display {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 4;
+  grid-row-end: span 1;
+  font-size: 1.3vw;
+}
+
+/* --- end ---- */
+
+
+@media (min-width: 600px) {
+  /* for the bigger size */
+  .weather {
+    position: absolute;
+    font-size: 3vh;
+    padding: 0;
+    border: 0px;
+    margin: 0px;
+    margin-top: 2%;
+    margin-left: 85%;
+    text-align: center;
+  }
+  
+  #optionsMenu {
+    display: none;
+    position: absolute;
+    text-align: center;
+    right: 60%;
+    direction: ltr;
+    min-width: 400px;
+    max-width: 600px;
+    box-shadow: 8px 8px 16px 16px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    font-size: 2.5vh;
+    transform: translateX(50%);
+  }
+}
+
+@media (max-width: 601px) {
+  /* for the smaller size */
+  .weather {
+    position: absolute;
+    font-size: 3vh;
+    padding: 0;
+    border: 0px;
+    margin: 0px;
+    margin-top: 2%;
+    margin-left: 70%;
+    text-align: center;
+  }
+
+  #optionsMenu {
+    display: none;
+    position: absolute;
+    text-align: center;
+    right: 60%;
+    direction: ltr;
+    min-width: 100px;
+    max-width: 300px;
+    box-shadow: 8px 8px 16px 16px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    font-size: 2.5vh;
+    transform: translateX(50%);
+  }
+}
+
+#imgInput {
+  text-align: center;
+}
+
+#weatherInput {
+  text-align: center;
+}
+
+#options {
+  cursor: grab;
+  margin-top: 5px;
+}
+
+#handleImages {
+  cursor: grab;
+}
+
+#handleAnimations {
+  cursor: grab;
+}
+
+#handleWeather {
+  cursor: grab;
+}
+
+
+#creatorStamp {
+  position: fixed;
+  margin: 0px;
+  padding: 0px;
+  left: 4px;
+  bottom: 4px;
+  font-size: 10pt;
+}
+
+.descriptionSpacer {
+  height: 10px;
+}
+
+.clockSwitchContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/* SLIDER */
+
+.slidecontainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%; /* Width of the outside container */
+}
+
+.clocksLabel {
+  width: 20%;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 60%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.summaryTitle {
+  margin-bottom: 10px;
+}
+
+#dateColorSettings {
+  margin-bottom: 10px;  
+  margin-top: 10px;
+}
+
+#weatherDescriptionSettings {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.colorsSettings div {
+  margin-top: 5px;
+}

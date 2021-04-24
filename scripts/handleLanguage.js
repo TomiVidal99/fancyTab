@@ -4,6 +4,7 @@ function handleLanguage(langObj) {
         if (document.getElementById(item)) {
             document.getElementById(item).innerHTML = langObj[item];
             document.getElementById(item).placeholder = langObj[item];
+            //console.log(langObj[item])
         } 
     }
 

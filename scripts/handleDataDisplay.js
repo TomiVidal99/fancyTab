@@ -19,12 +19,14 @@ function handleDateDisplay(date, color, size) {
     }
 }
 
-function handleDescriptionDisplay(description, color, size) {
+function handleDescriptionDisplay(description, color, size, shouldBeActive) {
     // this function will handle the changes inside the div of the weather description
     const descriptionElement = document.getElementById("weather_description_display");
-    if (description  && descriptionElement) {
+    if (shouldBeActive === "true" && description  && descriptionElement) {
         descriptionElement.innerHTML = description;
         descriptionElement.style.color = color;
         descriptionElement.style.fontSize = size + "vh";
+    } else {
+        descriptionElement.innerHTML = "";
     }
 }

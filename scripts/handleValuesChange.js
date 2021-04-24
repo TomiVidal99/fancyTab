@@ -27,7 +27,7 @@ function defineStoredValues() {
             };
         } else if (i.type === "select-one") {
             i.selectedIndex = initialValues[item];
-            // add event listeners 
+            // add event listeners
             i.onchange = () => {
                 initialValues[item] = i.selectedIndex.toString();
                 localStorage.setItem(item, initialValues[item]);
@@ -42,12 +42,13 @@ function defineStoredValues() {
             // add event listeners
             i.onclick = () => {
                 localStorage.setItem(item, i.checked.toString());
+                initialValues[item] = i.checked.toString();
             }
         } else {
             console.log("error")
         }
     }
-    
+
     // selected index of language select
     if (browserLang == "es") {
         document.getElementById("language").selectedIndex = 0;
@@ -72,7 +73,7 @@ function changesOnAnimations(item) {
                 console.log("refractal trees!");
                 // trees animation
                 resizeCanvas(window.innerWidth, window.innerHeight);
-                reDefineTrees();    
+                reDefineTrees();
             break;
             case "3":
                 console.log("Boxes!");

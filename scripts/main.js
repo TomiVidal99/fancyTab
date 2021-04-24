@@ -104,7 +104,7 @@ function draw() {
 
   handleTimeDisplay(b[0], initialValues["timeColor"], initialValues["clockFontSize"]);
   handleDateDisplay(handleDateFormat(time, parseInt(initialValues["dateFormat"])), initialValues["dateColor"], initialValues["dateFontSize"]);
-  handleDescriptionDisplay(weatherDescription, initialValues["descriptionColor"], initialValues["weatherDescriptionFontSize"]);
+  handleDescriptionDisplay(weatherDescription, initialValues["descriptionColor"], initialValues["weatherDescriptionFontSize"], initialValues["weatherDescriptionCheckbox"]);
 
 }
 

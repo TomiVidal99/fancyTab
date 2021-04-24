@@ -1,0 +1,372 @@
+:root {
+    --outline-color: #88aaff;
+    --options-background-color: #ccc;
+}
+
+body {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  border: 0px;
+  z-index: 1;
+}
+
+/* width */
+body::-webkit-scrollbar {
+  display: none;
+}
+/* Track */
+body::-webkit-scrollbar-track {
+  display: none;
+}
+
+/*avoid text highlight from the user*/
+* {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+/* STYLING FOR THE TIME DATE AND DISCRIPTION DIV */
+
+:root {
+  --time-display-size: 15vh;
+  --date-display-size: 10vh;
+  --description-display-size: 8vh;
+}
+
+.data_display_wrapper {
+  position: absolute;
+  margin: 40vh auto auto auto;
+  padding: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+
+label {
+    justify-self: center;
+}
+
+#time_display {
+  font-size: var(--time-display-size);
+}
+
+#date_display, #weather_description_display {
+  font-size: 1.3vw;
+}
+
+#dateFormatSelector {
+    margin-bottom: 10px;
+}
+
+#weather {
+  display: none;
+  position: absolute;
+  /* margin: 5vh auto auto 90vw; */
+  margin-right: auto;
+  margin-left: 90vw;
+  margin-top: 5vh;
+  margin-bottom: auto;
+  padding: 0;
+  top: 0;
+  right: 0;
+  text-align: center; 
+}
+
+#creatorsStamp {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  overflow: hidden;
+  font-size: 0.6rem;
+}
+
+#optionsMenu {
+  display: none;
+  /*position: absolute;*/
+  /*margin: 5vh auto auto 90vw;*/
+  /*padding: 0;*/
+  /*right: 0;*/
+  /*left: 0;*/
+  /*text-align: center;  */
+}
+
+#options, #handleImages, #handleAnimations, #handleWeather {
+  cursor: grab;
+}
+
+.descriptionSpacer {
+  height: 10px;
+}
+
+.clockSwitchContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#options {
+    position: fixed;
+    right: 0;
+    margin: 2%;
+}
+
+#optionsMenu {
+    display: none;
+    /*display: block;*/
+    position: fixed;
+    right: 5vw;
+    top: 8vh;
+    text-align: center;
+    direction: ltr;
+    min-width: 100px;
+    max-width: 300px;
+    box-shadow: 8px 8px 16px 16px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    font-size: 1rem;
+}
+
+input {
+    border: 1px solid var(--outline-color);
+    outline: none;
+    border-radius: 15px;
+    background-color: var(--options-background-color);
+}
+
+#imgInput:hover, #weatherInput:hover, select:hover {
+    background-color: white;
+}
+
+select {
+    /*appearance: none;*/
+    background-color: transparent;
+    outline: none;
+    border: var(--outline-color);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    font-size: 1rem;
+    background-color: var(--options-background-color);
+}
+
+option {
+    font-size: 1rem;
+    background-color: var(--options-background-color);
+    border: none;
+    outline: none;
+}
+
+/* .data_display_wrapper {
+  position: absolute;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  grid-template-rows: 40% 15% 10% 8% auto;
+  grid-template-columns: auto 35% auto;
+} */
+
+/* #time_display {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 2;
+  grid-row-end: span 1;
+  font-size: var(--time-display-size);
+} */
+
+/* #date_display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 3;
+  grid-row-end: span 1;
+  font-size: 1.3vw;
+} */
+
+/* #weather_description_display {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 4;
+  grid-row-end: span 1;
+  font-size: 1.3vw;
+} */
+
+/* --- end ---- */
+
+
+/* @media (min-width: 600px) { */
+  /* for the bigger size */
+  ./* weather {
+    position: absolute;
+    font-size: 3vh;
+    padding: 0;
+    border: 0px;
+    margin: 0px;
+    margin-top: 2%;
+    margin-left: 85%;
+    text-align: center;
+  }
+  
+  #optionsMenu {
+    display: none;
+    position: absolute;
+    text-align: center;
+    right: 60%;
+    direction: ltr;
+    min-width: 400px;
+    max-width: 600px;
+    box-shadow: 8px 8px 16px 16px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    font-size: 2.5vh;
+    transform: translateX(50%);
+  }
+} */
+
+/* @media (max-width: 601px) { */
+  /* for the smaller size */
+  /* .weather {
+    position: absolute;
+    font-size: 3vh;
+    padding: 0;
+    border: 0px;
+    margin: 0px;
+    margin-top: 2%;
+    margin-left: 70%;
+    text-align: center;
+  }
+
+  #optionsMenu {
+    display: none;
+    position: absolute;
+    text-align: center;
+    right: 60%;
+    direction: ltr;
+    min-width: 100px;
+    max-width: 300px;
+    box-shadow: 8px 8px 16px 16px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    font-size: 2.5vh;
+    transform: translateX(50%);
+  }
+} */
+
+/* #imgInput {
+  text-align: center;
+}
+
+#weatherInput {
+  text-align: center;
+}
+
+
+.descriptionSpacer {
+  height: 10px;
+}
+
+.clockSwitchContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+} */
+
+
+/* SLIDER */
+
+.slidecontainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%; /* Width of the outside container */
+}
+
+.clocksLabel {
+  width: 20%;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 60%; /* Full-width */
+  height: 3.2vh; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1; 
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 1vw; 
+  height: 3vh; 
+  background: #4CAF50;
+  cursor: pointer; 
+  border-radius: 5px;
+}
+
+.slider::-moz-range-thumb {
+  width: 1vw;
+  height: 3vh;
+  background: #4CAF50;
+  cursor: pointer; 
+  border-radius: 5px;
+}
+
+.sliderColor {
+    background-color: var(--options-background-color);
+}
+
+.inputColor {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.summaryTitle {
+  margin-bottom: 10px;
+}
+
+#dateColorSettings, #weatherDescriptionSettings {
+  margin-bottom: 10px;  
+  margin-top: 10px;
+}
+
+.colorsSettings div {
+  margin-top: 5px;
+}
+
+@keyframes turnIn {
+  from {
+    transform: rotate(0deg) scale(0);
+  }
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}

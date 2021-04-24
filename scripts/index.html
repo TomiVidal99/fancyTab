@@ -1,156 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <link rel="stylesheet" type="text/css" href="mainCSS.css">
-    <script src="../addons/p5.min.js"></script>
-    <script src="../addons/p5.dom.js"></script>
-    <script src="../addons/p5.sound.js"></script>
-  </head>
-  <body id="wrapper" >
-      <div class="data_display_wrapper">
-        <div id="time_display" class="time"></div>
-        <div id="date_display" class="date"></div>
-        <div id="weather_description_display" class="description"></div>
-      </div>
-      <div class="weather">
-      <div id="currentTemp"></div>
-      <div id="currentHumidity"></div>
-      <div id="options"><ion-icon name="settings"></ion-icon></div>
-      <div id="optionsMenu">
-        <select id="language">
-          <option id="lang_es" >es</option>
-          <option id="lang_en" >en</option>
-        </select>
-        <hr>
-        <input id="imgInput">
-        <hr>
-        <input id="weatherInput">
-        <hr>
-        <label id="animationsSelectorLabel"></label>
-        <select id="animationsIndex">
-          <option id="noneAnimation" selected ></option>
-          <option id="bubbleAnimation" ></option>
-          <option id="treeAnimation" ></option>
-          <option id="boxesAnimation" ></option>
-        </select>
-        <hr>
-        <details>
-          <summary class="summaryTitle" id="fontSizeLabel"></summary>
-          <div class="timeSettings">
-            <div class="descriptionSpacer"></div>
-            <div class="slidecontainer">
-              <label class="clocksLabel" id="clockFontSizeLabel"></label>
-              <input type="range" min="1" max="20" value="1" class="slider" id="clockFontSize">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="../styles/main.css">
+        <script src="../addons/p5.min.js"></script>
+        <script src="../addons/p5.dom.js"></script>
+    </head>
+    <body id="wrapper" >
+        <div class="data_display_wrapper">
+            <div id="time_display" class="time"></div>
+            <div id="date_display" class="date"></div>
+            <div id="weather_description_display" class="description"></div>
+        </div>
+        <div class="weather">
+            <div id="currentTemp"></div>
+            <div id="currentHumidity"></div>
+            <div id="options"><ion-icon name="settings"></ion-icon></div>
+            <div id="optionsMenu">
+                <select id="language">
+                    <option id="lang_es" >es</option>
+                    <option id="lang_en" >en</option>
+                </select>
+                <hr>
+                <input id="imgInput">
+                <hr>
+                <input id="weatherInput">
+                <hr>
+                <label id="animationsSelectorLabel"></label>
+                <select id="animationsIndex">
+                    <option id="noneAnimation" selected ></option>
+                    <option id="bubbleAnimation" ></option>
+                    <option id="treeAnimation" ></option>
+                    <option id="boxesAnimation" ></option>
+                </select>
+                <hr>
+                <details>
+                <summary class="summaryTitle" id="fontSizeLabel"></summary>
+                <div class="timeSettings">
+                    <div class="descriptionSpacer"></div>
+                    <div class="slidecontainer">
+                        <label class="clocksLabel" id="clockFontSizeLabel"></label>
+                        <input type="range" min="1" max="20" value="1" class="slider" id="clockFontSize">
+                    </div>
+                    <hr style="width: 50%; opacity: 20%">
+                    <div class="slidecontainer">
+                        <label class="clocksLabel" id="dateFontSizeLabel"></label>
+                        <input type="range" min="1" max="20" value="1" class="slider" id="dateFontSize">
+                    </div>
+                    <hr style="width: 50%; opacity: 20%">
+                    <div class="slidecontainer">
+                        <label class="clocksLabel" id="weatherDescriptionFontSizeLabel"></label>
+                        <input type="range" min="1" max="20" value="1" class="slider" id="weatherDescriptionFontSize">
+                    </div>
+                    <hr style="width: 50%; opacity: 20%">
+                    <div id="weatherDescriptionSettings">
+                        <label id="weatherDescriptionLabel"></label>
+                        <input type="checkbox" id="weatherDescriptionCheckbox">
+                    </div>
+                    <hr style="width: 50%; opacity: 20%">
+                    <div id="dateFormatSelectorWrapper">
+                        <div id="dateFormatSelector"></div>
+                        <select id="dateFormat">
+                            <option id="format_1" selected></option>
+                            <option id="format_2"></option>
+                            <option id="format_3"></option>
+                            <option id="format_4"></option>
+                            <option id="format_5"></option>
+                            <option id="format_6"></option>
+                            <option id="format_7"></option>
+                            <option id="format_8"></option>
+                        </select>
+                    </div>
+                </div>
+                </details>
+                <hr>
+                <details class="clockSettings">
+                <summary class="summaryTitle" id="clockSettingsTitle"></summary>
+                <div class="clockSwitchContainer" style="margin-top: 15px">
+                    <label id="clockSwitchLabel"></label>
+                    <input id="clockSwitchCheckbox" type="checkbox">
+                </div>
+                <hr style="width: 50%; opacity: 20%">
+                <div class="descriptionSpacer"></div>
+                <div class="slidecontainer">
+                    <label class="clocksLabel" id="clockHoursSizeLabel"></label>
+                    <input type="range" min="1" max="100" value="1" step="1" class="slider" id="clockHoursSize">
+                </div>
+                <div class="slidecontainer">
+                    <label class="clocksLabel" id="clockMinutesSizeLabel"></label>
+                    <input type="range" min="1" max="100" value="1" step="1" class="slider" id="clockMinutesSize">
+                </div>
+                <div class="slidecontainer">
+                    <label class="clocksLabel" id="clockSecondsSizeLabel"></label>
+                    <input type="range" min="1" max="100" value="1" step="1" class="slider" id="clockSecondsSize">
+                </div>
+                <div class="slidecontainer">
+                    <label class="clocksLabel" id="clockThicknessLabel"></label>
+                    <input type="range" min="1" max="150" value="1" step="1" class="slider" id="clockThickness">
+                </div>
+                </details>
+                <hr>
+                <details class="clocksColorSelection">
+                <summary class="summaryTitle" id="clocksColorSelectionLabel"></summary>
+                <div class="descriptionSpacer"></div>
+                <div class="hoursColorSelection">
+                    <label id="hoursColorSelectionLabel"></label>
+                    <input class="inputColor" id="hoursColorSelectionColor" type="color">
+                    <input class="sliderColors" id="hoursColorSelectionAlpha" type="range" min="1" max="255" value="40" step="1">
+                </div>
+                <div class="minutesColorSelection">
+                    <label id="minutesColorSelectionLabel"></label>
+                    <input class="inputColor" id="minutesColorSelectionColor" type="color">
+                    <input class="sliderColors" id="minutesColorSelectionAlpha" type="range" min="1" max="255" value="40" step="1">
+                </div>
+                <div class="secondsColorSelection">
+                    <label id="secondsColorSelectionLabel"></label>
+                    <input class="inputColor" id="secondsColorSelectionColor" type="color">
+                    <input class="sliderColors" id="secondsColorSelectionAlpha" type="range" min="1" max="255" value="40" step="1">
+                </div>
+                </details>
+                <hr>
+                <details class="colorsSettings">
+                <summary id="numbersColorTitle" class="summaryTitle"></summary>
+                <div id="timeColorSettings">
+                    <label id="timeColorLabel"></label>
+                    <input class="inputColor" id="timeColor" type="color" value="#ffffff">
+                </div>
+                <div id="dateColorSettings">
+                    <label id="dateColorLabel"></label>
+                    <input class="inputColor" id="dateColor" type="color" value="#ffffff">
+                </div>
+                <div id="descriptionColorSettings">
+                    <label id="descriptionColorLabel"></label>
+                    <input class="inputColor" id="descriptionColor" type="color" value="#ffffff">
+                </div>
+                <div id="backgroundColorsettings">
+                    <label id="backgroundColorLabel"></label>
+                    <input class="inputColor" id="backgroundColor" type="color">
+                </div>
+                </details>
+                <hr>
             </div>
-            <div class="slidecontainer">
-              <label class="clocksLabel" id="dateFontSizeLabel"></label>
-              <input type="range" min="1" max="20" value="1" class="slider" id="dateFontSize">
-            </div>
-            <div class="slidecontainer">
-              <label class="clocksLabel" id="weatherDescriptionFontSizeLabel"></label>
-              <input type="range" min="1" max="20" value="1" class="slider" id="weatherDescriptionFontSize">
-            </div>
-            <div id="weatherDescriptionSettings">
-              <label id="weatherDescriptionLabel"></label>
-              <input type="checkbox" id="weatherDescriptionCheckbox">
-            </div>  
-            <div id="dateFormatSelectorWrapper">
-              <div id="dateFormatSelector"></div>
-              <select id="dateFormat">
-                <option id="format_1" selected></option>
-                <option id="format_2"></option>
-                <option id="format_3"></option>
-                <option id="format_4"></option>
-                <option id="format_5"></option>
-                <option id="format_6"></option>
-                <option id="format_7"></option>
-                <option id="format_8"></option>
-              </select>
-            </div>
-          </div>
-        </details>
-        <hr>
-        <details class="clockSettings">
-          <summary class="summaryTitle" id="clockSettingsTitle"></summary>
-          <div class="clockSwitchContainer">
-            <label id="clockSwitchLabel"></label>
-            <input id="clockSwitchCheckbox" type="checkbox">
-          </div>
-          <div class="descriptionSpacer"></div>
-          <div class="slidecontainer">
-            <label class="clocksLabel" id="clockHoursSizeLabel"></label>
-            <input type="range" min="1" max="100" value="1" step="1" class="slider" id="clockHoursSize">
-          </div>
-          <div class="slidecontainer">
-            <label class="clocksLabel" id="clockMinutesSizeLabel"></label>
-            <input type="range" min="1" max="100" value="1" step="1" class="slider" id="clockMinutesSize">
-          </div>
-          <div class="slidecontainer">
-            <label class="clocksLabel" id="clockSecondsSizeLabel"></label>
-            <input type="range" min="1" max="100" value="1" step="1" class="slider" id="clockSecondsSize">
-          </div>
-          <div class="slidecontainer">
-            <label class="clocksLabel" id="clockThicknessLabel"></label>
-            <input type="range" min="1" max="150" value="1" step="1" class="slider" id="clockThickness">
-          </div>
-        </details>
-        <hr>
-        <details class="clocksColorSelection">
-          <summary class="summaryTitle" id="clocksColorSelectionLabel"></summary>
-          <div class="descriptionSpacer"></div>
-          <div class="hoursColorSelection">
-            <label id="hoursColorSelectionLabel"></label>
-            <input id="hoursColorSelectionColor" type="color">
-            <input id="hoursColorSelectionAlpha" type="range" min="1" max="255" value="40" step="1">
-          </div>
-          <div class="minutesColorSelection">
-            <label id="minutesColorSelectionLabel"></label>
-            <input id="minutesColorSelectionColor" type="color">
-            <input id="minutesColorSelectionAlpha" type="range" min="1" max="255" value="40" step="1">
-          </div>
-          <div class="secondsColorSelection">
-            <label id="secondsColorSelectionLabel"></label>
-            <input id="secondsColorSelectionColor" type="color">
-            <input id="secondsColorSelectionAlpha" type="range" min="1" max="255" value="40" step="1">
-          </div>
-        </details>
-        <hr>
-        <details class="colorsSettings">
-          <summary id="numbersColorTitle" class="summaryTitle"></summary>
-          <div id="timeColorSettings">
-            <label id="timeColorLabel"></label>
-            <input id="timeColor" type="color" value="#ffffff">  
-          </div>
-          <div id="dateColorSettings">
-            <label id="dateColorLabel"></label>
-            <input id="dateColor" type="color" value="#ffffff">  
-          </div>  
-          <div id="descriptionColorSettings">
-            <label id="descriptionColorLabel"></label>
-            <input id="descriptionColor" type="color" value="#ffffff">  
-          </div>  
-          <div id="backgroundColorsettings">
-            <label id="backgroundColorLabel"></label>
-            <input id="backgroundColor" type="color">  
-          </div>
-        </details>
-        <hr>
-    </div>
-    <div id="creatorStamp"></div>
-    <script src="handleLanguage.js"></script>
-    <script src="handleValuesChange.js"></script>
-    <script src="main.js"></script>
-    <script src="handleInput.js"></script>
-    <script src="handleDataDisplay.js"></script>
-    <script src="./animations/branch.js"></script>
-    <script src="./animations/bubble.js"></script>
-    <script src="./animations/boxes.js"></script>
-    <script src="handleImageRetrieve.js"></script>
-    <script src="clock.js"></script>
-    <script src="handleColorDetection.js"></script>
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-  </body>
+        </div>
+        <div id="creatorsStamp"></div>
+        <script src="handleLanguage.js"></script>
+        <script src="handleValuesChange.js"></script>
+        <script src="main.js"></script>
+        <script src="handleInput.js"></script>
+        <script src="handleDataDisplay.js"></script>
+        <script src="./animations/branch.js"></script>
+        <script src="./animations/bubble.js"></script>
+        <script src="./animations/boxes.js"></script>
+        <script src="handleImageRetrieve.js"></script>
+        <script src="clock.js"></script>
+        <script src="handleColorDetection.js"></script>
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    </body>
 </html>
-

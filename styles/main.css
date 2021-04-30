@@ -1,6 +1,8 @@
 :root {
     --outline-color: #88aaff;
     --options-background-color: #ccc;
+    --options-color: #ccc;
+    --general-font-family: PT Sans Narrow;
 }
 
 body {
@@ -39,7 +41,7 @@ body::-webkit-scrollbar-track {
 }
 
 .data_display_wrapper {
-  position: absolute;
+  position: fixed;
   margin: 40vh auto auto auto;
   padding: 0;
   right: 0;
@@ -110,6 +112,14 @@ label {
   width: 100%;
 }
 
+ion-icon {
+    color: var(--options-color);
+}
+
+ion-icon:hover {
+    color: white;
+}
+
 #options {
     position: fixed;
     right: 0;
@@ -141,6 +151,23 @@ input {
 
 #imgInput:hover, #weatherInput:hover, select:hover {
     background-color: white;
+}
+
+.weather > div {
+    position: fixed;
+    font-weight: bold;
+    color: var(--options-color);
+    font-family: var(--general-font-family);
+}
+
+#currentTemp {
+    top: calc(4vh + 20px);
+    right: calc(5vw);
+}
+
+#currentHumidity {
+    top: calc(5vh + 35px);
+    right: calc(5vw);
 }
 
 select {
